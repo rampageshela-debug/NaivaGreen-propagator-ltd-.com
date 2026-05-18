@@ -1,677 +1,531 @@
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
-<meta charset="UTF-8" />  
-<meta name="viewport" content="width=device-width, initial-scale=1" />  
-<meta name="description" content="Naivagreen Propagator Ltd - Premium Seedlings in Kenya. Healthy, Certified, High Yield seedlings to empower farmers." />  
-<title>Naivagreen Propagator Ltd</title>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  
+  <title>Naivagreen Propagator Ltd</title>  
   
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />  
+  <link  
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"  
+    rel="stylesheet"  
+  />  
   
-<style>  
-  :root {  
-    --green-dark: #0a3d2e;  
-    --green-medium: #28a745;  
-    --green-light: #3ecf57;  
-    --text-dark: #222;  
-    --text-light: #fff;  
-  }  
+  <!-- Favicon (optional) -->  
+  <!-- <link rel="icon" type="image/png" href="images/favicon.png" /> -->  
   
-  /* Reset and base */  
-  * {  
-    margin: 0;  
-    padding: 0;  
-    box-sizing: border-box;  
-    font-family: 'Poppins', sans-serif;  
-  }  
-  
-  html {  
-    scroll-behavior: smooth;  
-  }  
-  
-  body {  
-    background: #f5f7f6;  
-    color: var(--text-dark);  
-    line-height: 1.6;  
-    overflow-x: hidden;  
-  }  
-  
-  a {  
-    color: var(--green-medium);  
-    text-decoration: none;  
-    transition: color 0.3s ease;  
-  }  
-  
-  a:hover,  
-  a:focus {  
-    color: var(--green-light);  
-    outline: none;  
-  }  
-  
-  /* NAVIGATION */  
-  nav {  
-    position: fixed;  
-    width: 100%;  
-    top: 0;  
-    background: var(--green-dark);  
-    padding: 15px 30px;  
-    display: flex;  
-    justify-content: space-between;  
-    align-items: center;  
-    color: var(--text-light);  
-    z-index: 10000;  
-    box-shadow: 0 2px 12px rgb(0 0 0 / 0.2);  
-  }  
-  
-  nav[role="navigation"] {  
-    /* just for semantics */  
-  }  
-  
-  .logo {  
-    display: flex;  
-    align-items: center;  
-    gap: 10px;  
-  }  
-  
-  .logo img {  
-    height: 45px;  
-    width: auto;  
-    display: block;  
-  }  
-  
-  .logo h2 {  
-    font-size: 1.25rem;  
-    font-weight: 700;  
-    letter-spacing: 2px;  
-  }  
-  
-  .nav-links {  
-    display: flex;  
-    gap: 25px;  
-  }  
-  
-  .nav-links a {  
-    color: var(--text-light);  
-    font-weight: 500;  
-    font-size: 1rem;  
-    position: relative;  
-  }  
-  
-  .nav-links a::after {  
-    content: '';  
-    position: absolute;  
-    width: 0%;  
-    height: 2px;  
-    bottom: -5px;  
-    left: 0;  
-    background-color: var(--green-light);  
-    transition: width 0.3s ease-in-out;  
-  }  
-  
-  .nav-links a:hover::after,  
-  .nav-links a:focus::after {  
-    width: 100%;  
-  }  
-  
-  .menu {  
-    display: none;  
-    font-size: 2.5rem;  
-    cursor: pointer;  
-    user-select: none;  
-  }  
-  
-  /* HERO SECTION */  
-  .hero {  
-    height: 100vh;  
-    background: url('images/greenhouse1.jpg') center/cover no-repeat;  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    color: var(--text-light);  
-    text-align: center;  
-    position: relative;  
-    padding: 0 20px;  
-  }  
-  
-  .hero::after {  
-    content: '';  
-    position: absolute;  
-    inset: 0;  
-    background: rgba(0, 0, 0, 0.45);  
-    z-index: 0;  
-  }  
-  
-  .hero-content {  
-    background: transparent;  
-    z-index: 1;  
-    max-width: 650px;  
-    animation: fadeInUp 1.2s ease forwards;  
-  }  
-  
-  .hero h1 {  
-    font-size: 3.5rem;  
-    font-weight: 700;  
-    margin-bottom: 15px;  
-    line-height: 1.1;  
-    text-shadow: 0 3px 6px rgba(0,0,0,0.5);  
-  }  
-  
-  .hero p {  
-    font-size: 1.5rem;  
-    margin-bottom: 25px;  
-    font-weight: 500;  
-    letter-spacing: 0.05em;  
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4);  
-  }  
-  
-  .btn {  
-    background: var(--green-medium);  
-    color: var(--text-light);  
-    padding: 15px 30px;  
-    border-radius: 50px;  
-    font-weight: 600;  
-    font-size: 1.15rem;  
-    box-shadow: 0 8px 15px rgba(40, 167, 69, 0.4);  
-    transition: all 0.3s ease;  
-    display: inline-block;  
-    cursor: pointer;  
-    text-decoration: none;  
-  }  
-  
-  .btn:hover,  
-  .btn:focus {  
-    background: var(--green-light);  
-    box-shadow: 0 12px 25px rgba(62, 207, 87, 0.6);  
-    transform: translateY(-3px);  
-    outline: none;  
-  }  
-  
-  /* Scroll down arrow in hero */  
-  .scroll-down {  
-    position: absolute;  
-    bottom: 15px;  
-    left: 50%;  
-    transform: translateX(-50%);  
-    font-size: 2rem;  
-    color: var(--text-light);  
-    animation: bounce 2s infinite;  
-    user-select: none;  
-  }  
-  
-  /* SECTIONS */  
-  .section {  
-    padding: 100px 30px 80px;  
-    text-align: center;  
-    max-width: 1200px;  
-    margin: 0 auto;  
-  }  
-  
-  .section h2 {  
-    font-size: 2.5rem;  
-    font-weight: 700;  
-    margin-bottom: 25px;  
-    color: var(--green-dark);  
-    position: relative;  
-  }  
-  
-  .section h2::after {  
-    content: '';  
-    display: block;  
-    height: 4px;  
-    width: 80px;  
-    background: var(--green-medium);  
-    margin: 12px auto 0;  
-    border-radius: 2px;  
-  }  
-  
-  .section p {  
-    font-size: 1.125rem;  
-    max-width: 700px;  
-    margin: 0 auto;  
-    line-height: 1.6;  
-    color: #444;  
-  }  
-  
-  /* VIDEO */  
-  video {  
-    width: 100%;  
-    max-width: 800px;  
-    border-radius: 15px;  
-    margin-top: 40px;  
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);  
-    transition: transform 0.3s ease;  
-  }  
-  
-  video:hover,  
-  video:focus {  
-    transform: scale(1.03);  
-    outline: none;  
-  }  
-  
-  /* CARDS */  
-  .cards {  
-    display: grid;  
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));  
-    gap: 25px;  
-    margin-top: 40px;  
-  }  
-  
-  .card {  
-    background: #fff;  
-    border-radius: 12px;  
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  
-    overflow: hidden;  
-    transition: transform 0.3s ease, box-shadow 0.3s ease;  
-    cursor: default;  
-    display: flex;  
-    flex-direction: column;  
-  }  
-  
-  .card:hover,  
-  .card:focus-within {  
-    transform: translateY(-10px);  
-    box-shadow: 0 20px 35px rgba(40,167,69,0.3);  
-    outline: none;  
-  }  
-  
-  .card img {  
-    width: 100%;  
-    height: 200px;  
-    object-fit: cover;  
-    display: block;  
-  }  
-  
-  .card-content {  
-    padding: 20px;  
-    font-weight: 600;  
-    color: var(--green-dark);  
-    font-size: 1.1rem;  
-    flex-grow: 1;  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-  }  
-  
-  /* DARK THEME SECTIONS */  
-  .dark {  
-    background: var(--green-dark);  
-    color: var(--text-light);  
-  }  
-  
-  .dark .card {  
-    background: rgba(255, 255, 255, 0.12);  
-    backdrop-filter: blur(6px);  
-    border: 1px solid rgba(255, 255, 255, 0.2);  
-    color: var(--text-light);  
-  }  
-  
-  .dark .card-content {  
-    color: var(--text-light);  
-  }  
-  
-  /* FORM */  
-  form {  
-    margin-top: 25px;  
-    max-width: 450px;  
-    margin-left: auto;  
-    margin-right: auto;  
-    display: flex;  
-    flex-direction: column;  
-  }  
-  
-  form input,  
-  form button {  
-    width: 100%;  
-    padding: 14px 18px;  
-    margin: 12px 0;  
-    border-radius: 8px;  
-    border: 1.5px solid #ddd;  
-    font-size: 1rem;  
-    font-family: inherit;  
-    transition: border-color 0.25s ease;  
-  }  
-  
-  form input:focus {  
-    border-color: var(--green-medium);  
-    outline: none;  
-    box-shadow: 0 0 8px var(--green-light);  
-  }  
-  
-  form button {  
-    background: var(--green-medium);  
-    color: var(--text-light);  
-    font-weight: 700;  
-    border: none;  
-    cursor: pointer;  
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;  
-    user-select: none;  
-  }  
-  
-  form button:hover,  
-  form button:focus {  
-    background: var(--green-light);  
-    box-shadow: 0 8px 20px rgba(62, 207, 87, 0.7);  
-    outline: none;  
-  }  
-  
-  /* MAP */  
-  iframe {  
-    margin-top: 30px;  
-    width: 100%;  
-    height: 300px;  
-    border-radius: 15px;  
-    border: none;  
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);  
-  }  
-  
-  /* FOOTER */  
-  footer {  
-    text-align: center;  
-    padding: 20px;  
-    background: #06281f;  
-    color: var(--text-light);  
-    font-size: 0.9rem;  
-    user-select: none;  
-  }  
-  
-  /* WHATSAPP BUTTON */  
-  .whatsapp {  
-    position: fixed;  
-    bottom: 22px;  
-    right: 22px;  
-    background: #25D366;  
-    color: var(--text-light);  
-    padding: 18px 0;  
-    width: 56px;  
-    height: 56px;  
-    border-radius: 50%;  
-    font-size: 28px;  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.8);  
-    transition: transform 0.3s ease, box-shadow 0.3s ease;  
-    user-select: none;  
-    cursor: pointer;  
-    z-index: 10001;  
-  }  
-  
-  .whatsapp:hover,  
-  .whatsapp:focus {  
-    transform: scale(1.1);  
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 1);  
-    outline: none;  
-  }  
-  
-  /* Bounce animation on whatsapp button */  
-  @keyframes bounce {  
-    0%, 20%, 50%, 80%, 100% {  
-      transform: translateY(0)  
+  <style>  
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
+      font-family: "Poppins", sans-serif;  
     }  
-    40% {  
-      transform: translateY(-8px)  
+    html {  
+      scroll-behavior: smooth;  
     }  
-    60% {  
-      transform: translateY(-4px)  
+    body {  
+      background: #f5f7f6;  
+      color: #222;  
+      line-height: 1.6;  
+      min-height: 100vh;  
+      display: flex;  
+      flex-direction: column;  
     }  
-  }  
   
-  .whatsapp {  
-    animation: bounce 3.5s infinite;  
-  }  
+    /* NAVIGATION */  
   
-  /* MOBILE NAVIGATION */  
-  @media (max-width: 768px) {  
-    .menu {  
+    nav {  
+      position: fixed;  
+      width: 100%;  
+      top: 0;  
+      left: 0;  
+      display: flex;  
+      justify-content: space-between;  
+      align-items: center;  
+      padding: 15px 30px;  
+      background: #0a3d2e;  
+      color: #fff;  
+      z-index: 1000;  
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  
+      font-weight: 600;  
+    }  
+    nav .logo {  
+      display: flex;  
+      align-items: center;  
+      gap: 10px;  
+    }  
+    nav .logo img {  
+      height: 45px;  
+      width: auto;  
       display: block;  
     }  
-  
-    .nav-links {  
-      position: fixed;  
-      top: 65px;  
-      left: 0;  
-      width: 100%;  
-      flex-direction: column;  
-      background: var(--green-dark);  
-      padding: 20px 0;  
-      gap: 15px;  
-      display: none;  
-      box-shadow: 0 8px 25px rgb(0 0 0 / 0.3);  
-      transition: all 0.3s ease;  
-      max-height: 0;  
-      overflow: hidden;  
-      z-index: 9999;  
+    nav .logo h2 {  
+      font-size: 24px;  
+      letter-spacing: 2px;  
+      user-select: none;  
     }  
-  
-    .nav-links.active {  
+    nav .nav-links {  
       display: flex;  
-      max-height: 500px; /* max height to allow smooth expand */  
-      overflow-y: auto;  
+      gap: 25px;  
+      align-items: center;  
+      transition: max-height 0.35s ease, opacity 0.35s ease;  
+    }  
+    nav .nav-links a {  
+      color: #d9f0dc;  
+      text-decoration: none;  
+      position: relative;  
+      font-weight: 600;  
+      font-size: 1rem;  
+      padding: 5px 0;  
+      transition: color 0.3s ease;  
+      user-select: none;  
+    }  
+    nav .nav-links a::after {  
+      content: "";  
+      position: absolute;  
+      left: 0;  
+      bottom: 0;  
+      height: 2px;  
+      width: 0%;  
+      background: #28a745;  
+      transition: width 0.3s ease;  
+      border-radius: 2px;  
+    }  
+    nav .nav-links a:hover,  
+    nav .nav-links a:focus {  
+      color: #28a745;  
+    }  
+    nav .nav-links a:hover::after,  
+    nav .nav-links a:focus::after {  
+      width: 100%;  
     }  
   
-    .nav-links a {  
-      margin: 0;  
-      font-size: 1.3rem;  
-      padding: 12px 0;  
+    .menu {  
+      display: none;  
+      font-size: 32px;  
+      cursor: pointer;  
+      user-select: none;  
+      color: #d9f0dc;  
     }  
-  }  
   
-  /* FOCUS and ACCESSIBILITY */  
-  .menu:focus,  
-  .btn:focus,  
-  .whatsapp:focus {  
-    outline: 2px solid var(--green-light);  
-    outline-offset: 2px;  
-  }  
+    /* HERO */  
+    .hero {  
+      height: 100vh;  
+      background: url("images/greenhouse1.jpg") no-repeat center/cover;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      color: #f1f8f5;  
+      text-align: center;  
+      padding: 0 15px;  
+      position: relative;  
+      overflow: hidden;  
+      margin-top: 70px; /* offset for fixed nav height */  
+    }  
   
-  /* Animations for fadeInUp */  
-  @keyframes fadeInUp {  
-    0% {  
+    .hero-content {  
+      background: rgba(10, 61, 46, 0.75);  
+      padding: 40px 50px;  
+      border-radius: 10px;  
+      max-width: 700px;  
+      animation: fadeInUp 1.2s ease forwards;  
       opacity: 0;  
-      transform: translateY(25px);  
+      transform: translateY(30px);  
     }  
   
-    100% {  
-      opacity: 1;  
-      transform: translateY(0);  
+    .hero h1 {  
+      font-size: 3rem;  
+      margin-bottom: 15px;  
+      font-weight: 700;  
+      letter-spacing: 1.5px;  
+      line-height: 1.1;  
     }  
-  }  
+    .hero p {  
+      font-size: 1.3rem;  
+      margin-bottom: 25px;  
+      font-weight: 500;  
+      letter-spacing: 1.1px;  
+    }  
+    .btn {  
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);  
+      color: #fff;  
+      padding: 15px 30px;  
+      border-radius: 30px;  
+      text-decoration: none;  
+      font-weight: 600;  
+      font-size: 1.1rem;  
+      display: inline-block;  
+      box-shadow: 0 6px 15px rgba(39, 174, 96, 0.5);  
+      transition: background 0.3s ease, box-shadow 0.3s ease;  
+      user-select: none;  
+    }  
   
-  /* Bounce animation for scroll arrow */  
-  @keyframes bounce {  
-    0%, 20%, 50%, 80%, 100% {  
-      transform: translateY(0);  
+    .btn:hover,  
+    .btn:focus {  
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);  
+      box-shadow: 0 8px 20px rgba(39, 174, 96, 0.7);  
+      outline: none;  
     }  
-    40% {  
+  
+    /* SECTIONS */  
+    .section {  
+      padding: 100px 30px;  
+      text-align: center;  
+      max-width: 1100px;  
+      margin: 0 auto;  
+    }  
+  
+    /* VIDEO */  
+    video {  
+      width: 100%;  
+      max-width: 800px;  
+      border-radius: 12px;  
+      margin-top: 20px;  
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);  
+      outline: none;  
+    }  
+  
+    /* CARDS */  
+    .cards {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
+      gap: 30px;  
+      margin-top: 35px;  
+    }  
+  
+    .card {  
+      background: #fff;  
+      border-radius: 14px;  
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);  
+      overflow: hidden;  
+      transition: transform 0.3s ease, box-shadow 0.3s ease;  
+      cursor: default;  
+    }  
+    .card:hover,  
+    .card:focus-within {  
       transform: translateY(-8px);  
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);  
     }  
-    60% {  
-      transform: translateY(-4px);  
+    .card img {  
+      width: 100%;  
+      height: 200px;  
+      object-fit: cover;  
+      display: block;  
+      filter: brightness(95%);  
     }  
-  }  
-</style>  
+    .card-content {  
+      padding: 25px 20px;  
+      font-weight: 600;  
+      font-size: 1.1rem;  
+      color: #0a3d2e;  
+    }  
+  
+    /* DARK SECTION */  
+    .dark {  
+      background: #0a3d2e;  
+      color: #e9f6ef;  
+    }  
+    .dark .card {  
+      background: rgba(255, 255, 255, 0.1);  
+      backdrop-filter: blur(8px);  
+      border: 1px solid rgba(255, 255, 255, 0.12);  
+      color: #d1e7d3;  
+    }  
+    .dark .card-content {  
+      color: #d1e7d3;  
+    }  
+    .dark h2 {  
+      color: #acf2a1;  
+      margin-bottom: 20px;  
+    }  
+    .dark p {  
+      font-weight: 500;  
+      font-size: 1.15rem;  
+      letter-spacing: 0.02em;  
+      line-height: 1.5;  
+    }  
+  
+    /* FORM */  
+    form {  
+      max-width: 450px;  
+      margin: 0 auto;  
+      text-align: left;  
+    }  
+  
+    form input,  
+    form button {  
+      width: 100%;  
+      padding: 14px 15px;  
+      margin: 10px 0;  
+      border-radius: 8px;  
+      border: 1.5px solid #eee;  
+      font-size: 1rem;  
+      font-weight: 400;  
+      outline-offset: 2px;  
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;  
+    }  
+    form input:hover,  
+    form input:focus {  
+      border-color: #28a745;  
+      box-shadow: 0 0 8px rgba(40, 167, 69, 0.4);  
+      outline: none;  
+    }  
+  
+    form button {  
+      background: #28a745;  
+      color: white;  
+      font-weight: 600;  
+      border: none;  
+      cursor: pointer;  
+      transition: background 0.3s ease, box-shadow 0.3s ease;  
+      user-select: none;  
+    }  
+  
+    form button:hover,  
+    form button:focus {  
+      background: #239636;  
+      box-shadow: 0 6px 15px rgba(35, 150, 54, 0.7);  
+      outline: none;  
+    }  
+  
+    /* MAP */  
+    iframe {  
+      margin-top: 25px;  
+      border-radius: 14px;  
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);  
+      border: none;  
+    }  
+  
+    /* WHATSAPP */  
+    .whatsapp {  
+      position: fixed;  
+      bottom: 24px;  
+      right: 24px;  
+      background: #25d366;  
+      color: #fff;  
+      padding: 18px 20px;  
+      border-radius: 50%;  
+      font-size: 28px;  
+      text-decoration: none;  
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.8);  
+      transition: box-shadow 0.3s ease;  
+      user-select: none;  
+      z-index: 1100;  
+    }  
+    .whatsapp:hover,  
+    .whatsapp:focus {  
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 1);  
+      outline: none;  
+    }  
+  
+    /* MOBILE RESPONSIVE */  
+    @media (max-width: 768px) {  
+      nav .menu {  
+        display: block;  
+      }  
+      nav .nav-links {  
+        position: fixed;  
+        top: 70px;  
+        left: 0;  
+        width: 100%;  
+        background: #0a3d2e;  
+        flex-direction: column;  
+        max-height: 0;  
+        overflow: hidden;  
+        opacity: 0;  
+        transition: max-height 0.4s ease, opacity 0.4s ease;  
+        z-index: 999;  
+      }  
+      nav .nav-links.active {  
+        max-height: 350px;  
+        opacity: 1;  
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  
+      }  
+      nav .nav-links a {  
+        margin: 18px 0;  
+        font-size: 1.2rem;  
+      }  
+  
+      .hero-content {  
+        padding: 30px 20px;  
+      }  
+      .hero h1 {  
+        font-size: 2.4rem;  
+      }  
+      .hero p {  
+        font-size: 1.1rem;  
+      }  
+    }  
+  
+    /* Animations */  
+    @keyframes fadeInUp {  
+      0% {  
+        opacity: 0;  
+        transform: translateY(30px);  
+      }  
+      100% {  
+        opacity: 1;  
+        transform: translateY(0);  
+      }  
+    }  
+  </style>  
 </head>  
   
 <body>  
+  <!-- NAV -->  
+  <nav role="navigation" aria-label="Primary Navigation">  
+    <div class="logo" tabindex="0">  
+      <img src="images/logo2.png" alt="Naivagreen Logo" />  
+      <h2>NAIVAGREEN</h2>  
+    </div>  
   
-<!-- NAV -->  
-<nav role="navigation" aria-label="Primary Navigation">  
-  <div class="logo">  
-    <img src="images/logo2.png" alt="Naivagreen Logo" />  
-    <h2>NAIVAGREEN</h2>  
-  </div>  
+    <div class="menu" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key==='Enter') toggleMenu()">  
+      ☰  
+    </div>  
   
-  <button aria-label="Toggle menu" aria-controls="links" aria-expanded="false" class="menu" id="menuBtn">☰</button>  
+    <div id="links" class="nav-links">  
+      <a href="#home" role="link">Home</a>  
+      <a href="#about" role="link">About</a>  
+      <a href="#video" role="link">Video</a>  
+      <a href="#vision" role="link">Vision</a>  
+      <a href="#products" role="link">Products</a>  
+      <a href="#why" role="link">Why Us</a>  
+      <a href="#contact" role="link">Contact</a>  
+    </div>  
+  </nav>  
   
-  <div id="links" class="nav-links">  
-    <a href="#home" tabindex="0">Home</a>  
-    <a href="#about" tabindex="0">About</a>  
-    <a href="#video" tabindex="0">Video</a>  
-    <a href="#vision" tabindex="0">Vision</a>  
-    <a href="#products" tabindex="0">Products</a>  
-    <a href="#why" tabindex="0">Why Us</a>  
-    <a href="#contact" tabindex="0">Contact</a>  
-  </div>  
-</nav>  
+  <!-- HERO -->  
+  <section id="home" class="hero" aria-label="Hero Section">  
+    <div class="hero-content">  
+      <h1>Premium Seedlings in Kenya</h1>  
+      <p>Healthy • Certified • High Yield</p>  
+      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener noreferrer">Order Now</a>  
+    </div>  
+  </section>  
   
-<!-- HERO -->  
-<section id="home" class="hero" role="banner">  
-  <div class="hero-content">  
-    <h1>Premium Seedlings in Kenya</h1>  
-    <p>Healthy • Certified • High Yield</p>  
-    <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener">Order Now</a>  
-  </div>  
-  <div class="scroll-down" aria-hidden="true" title="Scroll down">⌄</div>  
-</section>  
+  <!-- ABOUT -->  
+  <section id="about" class="section" aria-labelledby="about-title">  
+    <h2 id="about-title">About Us</h2>  
+    <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>  
+  </section>  
   
-<!-- ABOUT -->  
-<section id="about" class="section" tabindex="0">  
-  <h2>About Us</h2>  
-  <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>  
-</section>  
+  <!-- VIDEO -->  
+  <section id="video" class="section" aria-labelledby="video-title">  
+    <h2 id="video-title">Our Farm in Action</h2>  
+    <video controls aria-label="Naivagreen Farm video">  
+      <source src="images/naivagreen-video.mp4" type="video/mp4" />  
+      Your browser does not support the video tag.  
+    </video>  
+  </section>  
   
-<!-- VIDEO -->  
-<section id="video" class="section" tabindex="0">  
-  <h2>Our Farm in Action</h2>  
-  <video controls preload="metadata" aria-label="Video showing Naivagreen's farm in action">  
-    <source src="images/naivagreen-video.mp4" type="video/mp4" />  
-    Your browser does not support the video tag.  
-  </video>  
-</section>  
+  <!-- VISION -->  
+  <section id="vision" class="section dark" aria-labelledby="vision-title">  
+    <h2 id="vision-title">Vision &amp; Mission</h2>  
+    <div class="cards">  
+      <article class="card" tabindex="0">  
+        <div class="card-content">  
+          <h3>🌍 Vision</h3>  
+          <p>To lead Africa in quality seedling production.</p>  
+        </div>  
+      </article>  
   
-<!-- VISION -->  
-<section id="vision" class="section dark" tabindex="0">  
-  <h2>Vision &amp; Mission</h2>  
-  <div class="cards">  
-    <article class="card" tabindex="0" aria-label="Vision">  
-      <div class="card-content">  
-        <h3>🌍 Vision</h3>  
-        <p>To lead Africa in quality seedling production.</p>  
-      </div>  
-    </article>  
+      <article class="card" tabindex="0">  
+        <div class="card-content">  
+          <h3>🚀 Mission</h3>  
+          <p>Deliver high-quality seedlings and empower farmers.</p>  
+        </div>  
+      </article>  
+    </div>  
+  </section>  
   
-    <article class="card" tabindex="0" aria-label="Mission">  
-      <div class="card-content">  
-        <h3>🚀 Mission</h3>  
-        <p>Deliver high-quality seedlings and empower farmers.</p>  
-      </div>  
-    </article>  
-  </div>  
-</section>  
+  <!-- PRODUCTS -->  
+  <section id="products" class="section" aria-labelledby="products-title">  
+    <h2 id="products-title">Our Seedlings</h2>  
+    <div class="cards">  
+      <article class="card" tabindex="0">  
+        <img src="images/spinach.jpg" alt="Spinach Seedlings" />  
+        <div class="card-content">Spinach</div>  
+      </article>  
+      <article class="card" tabindex="0">  
+        <img src="images/tomato.jpg" alt="Tomato Seedlings" />  
+        <div class="card-content">Tomato</div>  
+      </article>  
+      <article class="card" tabindex="0">  
+        <img src="images/capsicum.jpg" alt="Capsicum Seedlings" />  
+        <div class="card-content">Capsicum</div>  
+      </article>  
+      <article class="card" tabindex="0">  
+        <img src="images/basil-aroma.jpg" alt="Basil Seedlings" />  
+        <div class="card-content">Basil</div>  
+      </article>  
+    </div>  
+  </section>  
   
-<!-- PRODUCTS -->  
-<section id="products" class="section" tabindex="0">  
-  <h2>Our Seedlings</h2>  
-  <div class="cards">  
-    <article class="card" tabindex="0" aria-label="Spinach Seedlings">  
-      <img src="images/spinach.jpg" alt="Fresh Spinach seedlings" />  
-      <div class="card-content">Spinach</div>  
-    </article>  
+  <!-- WHY US -->  
+  <section id="why" class="section dark" aria-labelledby="why-title">  
+    <h2 id="why-title">Why Choose Us</h2>  
+    <p>  
+      ✔ Certified seedlings<br />  
+      ✔ High survival rate<br />  
+      ✔ Expert support<br />  
+      ✔ Affordable bulk supply  
+    </p>  
+  </section>  
   
-    <article class="card" tabindex="0" aria-label="Tomato Seedlings">  
-      <img src="images/tomato.jpg" alt="Fresh Tomato seedlings" />  
-      <div class="card-content">Tomato</div>  
-    </article>  
+  <!-- CONTACT -->  
+  <section id="contact" class="section" aria-labelledby="contact-title">  
+    <h2 id="contact-title">Contact &amp; Order</h2>  
   
-    <article class="card" tabindex="0" aria-label="Capsicum Seedlings">  
-      <img src="images/capsicum.jpg" alt="Fresh Capsicum seedlings" />  
-      <div class="card-content">Capsicum</div>  
-    </article>  
+    <form>  
+      <label for="name" class="sr-only">Your Name</label>  
+      <input type="text" id="name" placeholder="Your Name" required />  
   
-    <article class="card" tabindex="0" aria-label="Basil Seedlings">  
-      <img src="images/basil-aroma.jpg" alt="Fresh Basil seedlings" />  
-      <div class="card-content">Basil</div>  
-    </article>  
-  </div>  
-</section>  
+      <label for="phone" class="sr-only">Phone Number</label>  
+      <input type="tel" id="phone" placeholder="Phone Number" required pattern="[0-9+ ]{7,15}" />  
   
-<!-- WHY US -->  
-<section id="why" class="section dark" tabindex="0">  
-  <h2>Why Choose Us</h2>  
-  <p>✔ Certified seedlings<br />✔ High survival rate<br />✔ Expert support<br />✔ Affordable bulk supply</p>  
-</section>  
+      <label for="seedling" class="sr-only">Seedling Type</label>  
+      <input type="text" id="seedling" placeholder="Seedling Type" />  
   
-<!-- CONTACT -->  
-<section id="contact" class="section" tabindex="0">  
-  <h2>Contact & Order</h2>  
+      <label for="quantity" class="sr-only">Quantity</label>  
+      <input type="number" id="quantity" placeholder="Quantity" min="1" />  
   
-  <form id="orderForm" aria-label="Order form">  
-    <input type="text" placeholder="Your Name" name="name" required aria-required="true" autocomplete="name" />  
-    <input type="tel" placeholder="Phone Number" name="phone" required aria-required="true" autocomplete="tel" pattern="^\+?\d{7,15}$" title="Please enter a valid phone number" />  
-    <input type="text" placeholder="Seedling Type" name="seedlingType" autocomplete="off" />  
-    <input type="number" placeholder="Quantity" name="quantity" min="1" step="1" autocomplete="off" />  
-    <button type="submit" aria-label="Submit Order">Submit Order</button>  
-  </form>  
+      <button type="submit">Submit Order</button>  
+    </form>  
   
-  <iframe src="https://www.google.com/maps?q=Naivasha&output=embed" loading="lazy" title="Naivasha Location Map"></iframe>  
-</section>  
+    <iframe  
+      src="https://www.google.com/maps?q=Naivasha&output=embed"  
+      width="100%"  
+      height="300"  
+      aria-label="Location map of Naivasha"  
+      loading="lazy"  
+    ></iframe>  
+  </section>  
   
-<footer>  
-  &copy; 2026 Naivagreen Propagator Ltd  
-</footer>  
+  <footer style="text-align:center; padding:20px; background:#06281f; color:#acf2a1; font-weight:600;">  
+    &copy; 2026 Naivagreen Propagator Ltd  
+  </footer>  
   
-<!-- WHATSAPP -->  
-<a  
-  href="https://wa.me/254729526873"  
-  class="whatsapp"  
-  aria-label="Chat with us on WhatsApp"  
-  target="_blank"  
-  rel="noopener"  
-  >💬</a  
->  
+  <!-- WHATSAPP -->  
+  <a  
+    href="https://wa.me/254729526873"  
+    class="whatsapp"  
+    target="_blank"  
+    rel="noopener noreferrer"  
+    aria-label="Chat with Naivagreen on WhatsApp"  
+    >💬</a  
+  >  
   
-<script>  
-  // Toggle mobile menu with enhancement - aria attributes  
-  const menuBtn = document.getElementById('menuBtn');  
-  const navLinks = document.getElementById('links');  
+  <script>  
+    const menuBtn = document.querySelector(".menu");  
+    const navLinks = document.getElementById("links");  
   
-  menuBtn.addEventListener('click', function () {  
-    const isActive = navLinks.classList.toggle('active');  
-    menuBtn.setAttribute('aria-expanded', isActive);  
-  });  
-  
-  // Close mobile nav when clicking outside  
-  document.addEventListener('click', (e) => {  
-    const target = e.target;  
-    if (  
-      !navLinks.contains(target) &&  
-      !menuBtn.contains(target) &&  
-      navLinks.classList.contains('active')  
-    ) {  
-      navLinks.classList.remove('active');  
-      menuBtn.setAttribute('aria-expanded', false);  
+    function toggleMenu() {  
+      navLinks.classList.toggle("active");  
+      // Update aria-expanded for accessibility  
+      const expanded = menuBtn.getAttribute("aria-expanded") === "true";  
+      menuBtn.setAttribute("aria-expanded", !expanded);  
     }  
-  });  
-  
-  // Scroll fade-in animation for sections and cards using Intersection Observer  
-  const faders = document.querySelectorAll('.section, .card, .hero-content');  
-  
-  const appearOptions = {  
-    threshold: 0.15,  
-    rootMargin: '0px 0px -100px 0px',  
-  };  
-  
-  const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {  
-    entries.forEach((entry) => {  
-      if (!entry.isIntersecting) return;  
-      entry.target.style.animation = 'fadeInUp 1s forwards';  
-      appearOnScroll.unobserve(entry.target);  
-    });  
-  }, appearOptions);  
-  
-  faders.forEach((fader) => {  
-    fader.style.opacity = 0;  
-    appearOnScroll.observe(fader);  
-  });  
-  
-  // Optional: handle form submission (here just prevent default for now)  
-  const form = document.getElementById('orderForm');  
-  form.addEventListener('submit', (e) => {  
-    e.preventDefault();  
-    alert('Thank you for your order! We will contact you shortly.');  
-    form.reset();  
-  });  
-</script>  
+  </script>  
   
 </body>  
       </html>
