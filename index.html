@@ -1,328 +1,677 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Premium Seedlings Farm</title>
-
-<!-- SEO -->
-<meta name="description" content="Premium quality seedlings in Kenya. Order via WhatsApp easily.">
-<meta name="keywords" content="seedlings Kenya, tomato seedlings, sukuma wiki, spinach">
-
-<!-- Smooth Scroll -->
-<style>
-html{
-  scroll-behavior:smooth;
-}
-
-:root{
-  --primary:#0c7a3e;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
-
-body{
-  color:#333;
-}
-
-/* NAV */
-nav{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 20px;
-  background:#fff;
-  position:sticky;
-  top:0;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-.logo{
-  font-weight:bold;
-  color:var(--primary);
-}
-
-.menu-btn{
-  display:none;
-  font-size:24px;
-  cursor:pointer;
-}
-
-.nav-links{
-  display:flex;
-  gap:20px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#333;
-}
-
-/* HERO */
-.hero{
-  height:90vh;
-  background:url('images/greenhouse1.jpg') center/cover;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:#fff;
-  position:relative;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.5);
-}
-
-.hero h1{
-  position:relative;
-  font-size:3rem;
-}
-
-/* FADE ANIMATION */
-.fade-in{
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* SECTION */
-.section{
-  padding:50px 20px;
-  text-align:center;
-}
-
-/* SCROLL REVEAL */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.6s;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.card{
-  padding:15px;
-  border-radius:10px;
-  transition:0.3s;
-  background:#fff;
-}
-
-.card img{
-  width:100%;
-  border-radius:10px;
-}
-
-.card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-/* BUTTON */
-.btn{
-  background:var(--primary);
-  color:#fff;
-  padding:12px 20px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.btn:hover{
-  box-shadow:0 0 15px rgba(12,122,62,0.6);
-}
-
-.btn:active{
-  transform:scale(0.97);
-}
-
-/* FORM */
-form{
-  max-width:400px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-input, select{
-  padding:10px;
-  border:1px solid #ccc;
-  border-radius:5px;
-}
-
-/* TRUST */
-.trust{
-  background:#f5f5f5;
-  padding:40px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .menu-btn{
-    display:block;
-  }
-
-  .nav-links{
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    top:60px;
-    right:20px;
-    background:#fff;
-    padding:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-  }
-
-  .nav-links.active{
-    display:flex;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="logo">🌱 Premium Farm</div>
-  <div class="menu-btn" id="menuBtn">☰</div>
-  <div class="nav-links" id="navLinks">
-    <a href="#">Home</a>
-    <a href="#products">Products</a>
-    <a href="#order">Order</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <h1 class="fade-in">Premium Quality Seedlings 🌿</h1>
-</section>
-
-<!-- PRODUCTS -->
-<section class="section reveal" id="products">
-  <h2>Our Seedlings</h2>
-
-  <div class="products">
-    <div class="card">
-      <img src="images/tomato.jpg" loading="lazy">
-      <h3>Tomato</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/spinach.jpg" loading="lazy">
-      <h3>Spinach</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/sukuma.jpg" loading="lazy">
-      <h3>Sukuma Wiki</h3>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST -->
-<section class="trust reveal">
-  <h2>Trusted by 500+ Farmers 🌱</h2>
-  <p>We deliver quality and consistency across Kenya.</p>
-</section>
-
-<!-- ORDER -->
-<section class="section reveal" id="order">
-  <h2>Place Your Order</h2>
-
-  <form id="orderForm">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
-
-    <select name="seedlingType">
-      <option>Tomato</option>
-      <option>Spinach</option>
-      <option>Sukuma Wiki</option>
-    </select>
-
-    <input type="number" name="quantity" placeholder="Quantity" required>
-
-    <button class="btn">Order via WhatsApp</button>
-  </form>
-</section>
-
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.onclick = () => {
-  navLinks.classList.toggle("active");
-};
-
-/* Close menu */
-document.querySelectorAll('.nav-links a').forEach(link=>{
-  link.addEventListener('click',()=>{
-    navLinks.classList.remove('active');
-  });
-});
-
-/* Scroll reveal */
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.classList.add("active");
-    }
-  });
-});
-
-/* WhatsApp Order */
-const form = document.getElementById("orderForm");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const name = form.name.value;
-  const phone = form.phone.value;
-  const type = form.seedlingType.value;
-  const qty = form.quantity.value;
-
-  const message = `Hello, I want to order seedlings:
-Name: ${name}
-Phone: ${phone}
-Type: ${type}
-Quantity: ${qty}`;
-
-  const url = `https://wa.me/254729526873?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-
-  form.reset();
-});
-</script>
-
-</body>
-</html>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8" />  
+<meta name="viewport" content="width=device-width, initial-scale=1" />  
+<meta name="description" content="Naivagreen Propagator Ltd - Premium Seedlings in Kenya. Healthy, Certified, High Yield seedlings to empower farmers." />  
+<title>Naivagreen Propagator Ltd</title>  
+  
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />  
+  
+<style>  
+  :root {  
+    --green-dark: #0a3d2e;  
+    --green-medium: #28a745;  
+    --green-light: #3ecf57;  
+    --text-dark: #222;  
+    --text-light: #fff;  
+  }  
+  
+  /* Reset and base */  
+  * {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+    font-family: 'Poppins', sans-serif;  
+  }  
+  
+  html {  
+    scroll-behavior: smooth;  
+  }  
+  
+  body {  
+    background: #f5f7f6;  
+    color: var(--text-dark);  
+    line-height: 1.6;  
+    overflow-x: hidden;  
+  }  
+  
+  a {  
+    color: var(--green-medium);  
+    text-decoration: none;  
+    transition: color 0.3s ease;  
+  }  
+  
+  a:hover,  
+  a:focus {  
+    color: var(--green-light);  
+    outline: none;  
+  }  
+  
+  /* NAVIGATION */  
+  nav {  
+    position: fixed;  
+    width: 100%;  
+    top: 0;  
+    background: var(--green-dark);  
+    padding: 15px 30px;  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    color: var(--text-light);  
+    z-index: 10000;  
+    box-shadow: 0 2px 12px rgb(0 0 0 / 0.2);  
+  }  
+  
+  nav[role="navigation"] {  
+    /* just for semantics */  
+  }  
+  
+  .logo {  
+    display: flex;  
+    align-items: center;  
+    gap: 10px;  
+  }  
+  
+  .logo img {  
+    height: 45px;  
+    width: auto;  
+    display: block;  
+  }  
+  
+  .logo h2 {  
+    font-size: 1.25rem;  
+    font-weight: 700;  
+    letter-spacing: 2px;  
+  }  
+  
+  .nav-links {  
+    display: flex;  
+    gap: 25px;  
+  }  
+  
+  .nav-links a {  
+    color: var(--text-light);  
+    font-weight: 500;  
+    font-size: 1rem;  
+    position: relative;  
+  }  
+  
+  .nav-links a::after {  
+    content: '';  
+    position: absolute;  
+    width: 0%;  
+    height: 2px;  
+    bottom: -5px;  
+    left: 0;  
+    background-color: var(--green-light);  
+    transition: width 0.3s ease-in-out;  
+  }  
+  
+  .nav-links a:hover::after,  
+  .nav-links a:focus::after {  
+    width: 100%;  
+  }  
+  
+  .menu {  
+    display: none;  
+    font-size: 2.5rem;  
+    cursor: pointer;  
+    user-select: none;  
+  }  
+  
+  /* HERO SECTION */  
+  .hero {  
+    height: 100vh;  
+    background: url('images/greenhouse1.jpg') center/cover no-repeat;  
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+    color: var(--text-light);  
+    text-align: center;  
+    position: relative;  
+    padding: 0 20px;  
+  }  
+  
+  .hero::after {  
+    content: '';  
+    position: absolute;  
+    inset: 0;  
+    background: rgba(0, 0, 0, 0.45);  
+    z-index: 0;  
+  }  
+  
+  .hero-content {  
+    background: transparent;  
+    z-index: 1;  
+    max-width: 650px;  
+    animation: fadeInUp 1.2s ease forwards;  
+  }  
+  
+  .hero h1 {  
+    font-size: 3.5rem;  
+    font-weight: 700;  
+    margin-bottom: 15px;  
+    line-height: 1.1;  
+    text-shadow: 0 3px 6px rgba(0,0,0,0.5);  
+  }  
+  
+  .hero p {  
+    font-size: 1.5rem;  
+    margin-bottom: 25px;  
+    font-weight: 500;  
+    letter-spacing: 0.05em;  
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);  
+  }  
+  
+  .btn {  
+    background: var(--green-medium);  
+    color: var(--text-light);  
+    padding: 15px 30px;  
+    border-radius: 50px;  
+    font-weight: 600;  
+    font-size: 1.15rem;  
+    box-shadow: 0 8px 15px rgba(40, 167, 69, 0.4);  
+    transition: all 0.3s ease;  
+    display: inline-block;  
+    cursor: pointer;  
+    text-decoration: none;  
+  }  
+  
+  .btn:hover,  
+  .btn:focus {  
+    background: var(--green-light);  
+    box-shadow: 0 12px 25px rgba(62, 207, 87, 0.6);  
+    transform: translateY(-3px);  
+    outline: none;  
+  }  
+  
+  /* Scroll down arrow in hero */  
+  .scroll-down {  
+    position: absolute;  
+    bottom: 15px;  
+    left: 50%;  
+    transform: translateX(-50%);  
+    font-size: 2rem;  
+    color: var(--text-light);  
+    animation: bounce 2s infinite;  
+    user-select: none;  
+  }  
+  
+  /* SECTIONS */  
+  .section {  
+    padding: 100px 30px 80px;  
+    text-align: center;  
+    max-width: 1200px;  
+    margin: 0 auto;  
+  }  
+  
+  .section h2 {  
+    font-size: 2.5rem;  
+    font-weight: 700;  
+    margin-bottom: 25px;  
+    color: var(--green-dark);  
+    position: relative;  
+  }  
+  
+  .section h2::after {  
+    content: '';  
+    display: block;  
+    height: 4px;  
+    width: 80px;  
+    background: var(--green-medium);  
+    margin: 12px auto 0;  
+    border-radius: 2px;  
+  }  
+  
+  .section p {  
+    font-size: 1.125rem;  
+    max-width: 700px;  
+    margin: 0 auto;  
+    line-height: 1.6;  
+    color: #444;  
+  }  
+  
+  /* VIDEO */  
+  video {  
+    width: 100%;  
+    max-width: 800px;  
+    border-radius: 15px;  
+    margin-top: 40px;  
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);  
+    transition: transform 0.3s ease;  
+  }  
+  
+  video:hover,  
+  video:focus {  
+    transform: scale(1.03);  
+    outline: none;  
+  }  
+  
+  /* CARDS */  
+  .cards {  
+    display: grid;  
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));  
+    gap: 25px;  
+    margin-top: 40px;  
+  }  
+  
+  .card {  
+    background: #fff;  
+    border-radius: 12px;  
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  
+    overflow: hidden;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    cursor: default;  
+    display: flex;  
+    flex-direction: column;  
+  }  
+  
+  .card:hover,  
+  .card:focus-within {  
+    transform: translateY(-10px);  
+    box-shadow: 0 20px 35px rgba(40,167,69,0.3);  
+    outline: none;  
+  }  
+  
+  .card img {  
+    width: 100%;  
+    height: 200px;  
+    object-fit: cover;  
+    display: block;  
+  }  
+  
+  .card-content {  
+    padding: 20px;  
+    font-weight: 600;  
+    color: var(--green-dark);  
+    font-size: 1.1rem;  
+    flex-grow: 1;  
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+  }  
+  
+  /* DARK THEME SECTIONS */  
+  .dark {  
+    background: var(--green-dark);  
+    color: var(--text-light);  
+  }  
+  
+  .dark .card {  
+    background: rgba(255, 255, 255, 0.12);  
+    backdrop-filter: blur(6px);  
+    border: 1px solid rgba(255, 255, 255, 0.2);  
+    color: var(--text-light);  
+  }  
+  
+  .dark .card-content {  
+    color: var(--text-light);  
+  }  
+  
+  /* FORM */  
+  form {  
+    margin-top: 25px;  
+    max-width: 450px;  
+    margin-left: auto;  
+    margin-right: auto;  
+    display: flex;  
+    flex-direction: column;  
+  }  
+  
+  form input,  
+  form button {  
+    width: 100%;  
+    padding: 14px 18px;  
+    margin: 12px 0;  
+    border-radius: 8px;  
+    border: 1.5px solid #ddd;  
+    font-size: 1rem;  
+    font-family: inherit;  
+    transition: border-color 0.25s ease;  
+  }  
+  
+  form input:focus {  
+    border-color: var(--green-medium);  
+    outline: none;  
+    box-shadow: 0 0 8px var(--green-light);  
+  }  
+  
+  form button {  
+    background: var(--green-medium);  
+    color: var(--text-light);  
+    font-weight: 700;  
+    border: none;  
+    cursor: pointer;  
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;  
+    user-select: none;  
+  }  
+  
+  form button:hover,  
+  form button:focus {  
+    background: var(--green-light);  
+    box-shadow: 0 8px 20px rgba(62, 207, 87, 0.7);  
+    outline: none;  
+  }  
+  
+  /* MAP */  
+  iframe {  
+    margin-top: 30px;  
+    width: 100%;  
+    height: 300px;  
+    border-radius: 15px;  
+    border: none;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);  
+  }  
+  
+  /* FOOTER */  
+  footer {  
+    text-align: center;  
+    padding: 20px;  
+    background: #06281f;  
+    color: var(--text-light);  
+    font-size: 0.9rem;  
+    user-select: none;  
+  }  
+  
+  /* WHATSAPP BUTTON */  
+  .whatsapp {  
+    position: fixed;  
+    bottom: 22px;  
+    right: 22px;  
+    background: #25D366;  
+    color: var(--text-light);  
+    padding: 18px 0;  
+    width: 56px;  
+    height: 56px;  
+    border-radius: 50%;  
+    font-size: 28px;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.8);  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    user-select: none;  
+    cursor: pointer;  
+    z-index: 10001;  
+  }  
+  
+  .whatsapp:hover,  
+  .whatsapp:focus {  
+    transform: scale(1.1);  
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 1);  
+    outline: none;  
+  }  
+  
+  /* Bounce animation on whatsapp button */  
+  @keyframes bounce {  
+    0%, 20%, 50%, 80%, 100% {  
+      transform: translateY(0)  
+    }  
+    40% {  
+      transform: translateY(-8px)  
+    }  
+    60% {  
+      transform: translateY(-4px)  
+    }  
+  }  
+  
+  .whatsapp {  
+    animation: bounce 3.5s infinite;  
+  }  
+  
+  /* MOBILE NAVIGATION */  
+  @media (max-width: 768px) {  
+    .menu {  
+      display: block;  
+    }  
+  
+    .nav-links {  
+      position: fixed;  
+      top: 65px;  
+      left: 0;  
+      width: 100%;  
+      flex-direction: column;  
+      background: var(--green-dark);  
+      padding: 20px 0;  
+      gap: 15px;  
+      display: none;  
+      box-shadow: 0 8px 25px rgb(0 0 0 / 0.3);  
+      transition: all 0.3s ease;  
+      max-height: 0;  
+      overflow: hidden;  
+      z-index: 9999;  
+    }  
+  
+    .nav-links.active {  
+      display: flex;  
+      max-height: 500px; /* max height to allow smooth expand */  
+      overflow-y: auto;  
+    }  
+  
+    .nav-links a {  
+      margin: 0;  
+      font-size: 1.3rem;  
+      padding: 12px 0;  
+    }  
+  }  
+  
+  /* FOCUS and ACCESSIBILITY */  
+  .menu:focus,  
+  .btn:focus,  
+  .whatsapp:focus {  
+    outline: 2px solid var(--green-light);  
+    outline-offset: 2px;  
+  }  
+  
+  /* Animations for fadeInUp */  
+  @keyframes fadeInUp {  
+    0% {  
+      opacity: 0;  
+      transform: translateY(25px);  
+    }  
+  
+    100% {  
+      opacity: 1;  
+      transform: translateY(0);  
+    }  
+  }  
+  
+  /* Bounce animation for scroll arrow */  
+  @keyframes bounce {  
+    0%, 20%, 50%, 80%, 100% {  
+      transform: translateY(0);  
+    }  
+    40% {  
+      transform: translateY(-8px);  
+    }  
+    60% {  
+      transform: translateY(-4px);  
+    }  
+  }  
+</style>  
+</head>  
+  
+<body>  
+  
+<!-- NAV -->  
+<nav role="navigation" aria-label="Primary Navigation">  
+  <div class="logo">  
+    <img src="images/logo2.png" alt="Naivagreen Logo" />  
+    <h2>NAIVAGREEN</h2>  
+  </div>  
+  
+  <button aria-label="Toggle menu" aria-controls="links" aria-expanded="false" class="menu" id="menuBtn">☰</button>  
+  
+  <div id="links" class="nav-links">  
+    <a href="#home" tabindex="0">Home</a>  
+    <a href="#about" tabindex="0">About</a>  
+    <a href="#video" tabindex="0">Video</a>  
+    <a href="#vision" tabindex="0">Vision</a>  
+    <a href="#products" tabindex="0">Products</a>  
+    <a href="#why" tabindex="0">Why Us</a>  
+    <a href="#contact" tabindex="0">Contact</a>  
+  </div>  
+</nav>  
+  
+<!-- HERO -->  
+<section id="home" class="hero" role="banner">  
+  <div class="hero-content">  
+    <h1>Premium Seedlings in Kenya</h1>  
+    <p>Healthy • Certified • High Yield</p>  
+    <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener">Order Now</a>  
+  </div>  
+  <div class="scroll-down" aria-hidden="true" title="Scroll down">⌄</div>  
+</section>  
+  
+<!-- ABOUT -->  
+<section id="about" class="section" tabindex="0">  
+  <h2>About Us</h2>  
+  <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>  
+</section>  
+  
+<!-- VIDEO -->  
+<section id="video" class="section" tabindex="0">  
+  <h2>Our Farm in Action</h2>  
+  <video controls preload="metadata" aria-label="Video showing Naivagreen's farm in action">  
+    <source src="images/naivagreen-video.mp4" type="video/mp4" />  
+    Your browser does not support the video tag.  
+  </video>  
+</section>  
+  
+<!-- VISION -->  
+<section id="vision" class="section dark" tabindex="0">  
+  <h2>Vision &amp; Mission</h2>  
+  <div class="cards">  
+    <article class="card" tabindex="0" aria-label="Vision">  
+      <div class="card-content">  
+        <h3>🌍 Vision</h3>  
+        <p>To lead Africa in quality seedling production.</p>  
+      </div>  
+    </article>  
+  
+    <article class="card" tabindex="0" aria-label="Mission">  
+      <div class="card-content">  
+        <h3>🚀 Mission</h3>  
+        <p>Deliver high-quality seedlings and empower farmers.</p>  
+      </div>  
+    </article>  
+  </div>  
+</section>  
+  
+<!-- PRODUCTS -->  
+<section id="products" class="section" tabindex="0">  
+  <h2>Our Seedlings</h2>  
+  <div class="cards">  
+    <article class="card" tabindex="0" aria-label="Spinach Seedlings">  
+      <img src="images/spinach.jpg" alt="Fresh Spinach seedlings" />  
+      <div class="card-content">Spinach</div>  
+    </article>  
+  
+    <article class="card" tabindex="0" aria-label="Tomato Seedlings">  
+      <img src="images/tomato.jpg" alt="Fresh Tomato seedlings" />  
+      <div class="card-content">Tomato</div>  
+    </article>  
+  
+    <article class="card" tabindex="0" aria-label="Capsicum Seedlings">  
+      <img src="images/capsicum.jpg" alt="Fresh Capsicum seedlings" />  
+      <div class="card-content">Capsicum</div>  
+    </article>  
+  
+    <article class="card" tabindex="0" aria-label="Basil Seedlings">  
+      <img src="images/basil-aroma.jpg" alt="Fresh Basil seedlings" />  
+      <div class="card-content">Basil</div>  
+    </article>  
+  </div>  
+</section>  
+  
+<!-- WHY US -->  
+<section id="why" class="section dark" tabindex="0">  
+  <h2>Why Choose Us</h2>  
+  <p>✔ Certified seedlings<br />✔ High survival rate<br />✔ Expert support<br />✔ Affordable bulk supply</p>  
+</section>  
+  
+<!-- CONTACT -->  
+<section id="contact" class="section" tabindex="0">  
+  <h2>Contact & Order</h2>  
+  
+  <form id="orderForm" aria-label="Order form">  
+    <input type="text" placeholder="Your Name" name="name" required aria-required="true" autocomplete="name" />  
+    <input type="tel" placeholder="Phone Number" name="phone" required aria-required="true" autocomplete="tel" pattern="^\+?\d{7,15}$" title="Please enter a valid phone number" />  
+    <input type="text" placeholder="Seedling Type" name="seedlingType" autocomplete="off" />  
+    <input type="number" placeholder="Quantity" name="quantity" min="1" step="1" autocomplete="off" />  
+    <button type="submit" aria-label="Submit Order">Submit Order</button>  
+  </form>  
+  
+  <iframe src="https://www.google.com/maps?q=Naivasha&output=embed" loading="lazy" title="Naivasha Location Map"></iframe>  
+</section>  
+  
+<footer>  
+  &copy; 2026 Naivagreen Propagator Ltd  
+</footer>  
+  
+<!-- WHATSAPP -->  
+<a  
+  href="https://wa.me/254729526873"  
+  class="whatsapp"  
+  aria-label="Chat with us on WhatsApp"  
+  target="_blank"  
+  rel="noopener"  
+  >💬</a  
+>  
+  
+<script>  
+  // Toggle mobile menu with enhancement - aria attributes  
+  const menuBtn = document.getElementById('menuBtn');  
+  const navLinks = document.getElementById('links');  
+  
+  menuBtn.addEventListener('click', function () {  
+    const isActive = navLinks.classList.toggle('active');  
+    menuBtn.setAttribute('aria-expanded', isActive);  
+  });  
+  
+  // Close mobile nav when clicking outside  
+  document.addEventListener('click', (e) => {  
+    const target = e.target;  
+    if (  
+      !navLinks.contains(target) &&  
+      !menuBtn.contains(target) &&  
+      navLinks.classList.contains('active')  
+    ) {  
+      navLinks.classList.remove('active');  
+      menuBtn.setAttribute('aria-expanded', false);  
+    }  
+  });  
+  
+  // Scroll fade-in animation for sections and cards using Intersection Observer  
+  const faders = document.querySelectorAll('.section, .card, .hero-content');  
+  
+  const appearOptions = {  
+    threshold: 0.15,  
+    rootMargin: '0px 0px -100px 0px',  
+  };  
+  
+  const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {  
+    entries.forEach((entry) => {  
+      if (!entry.isIntersecting) return;  
+      entry.target.style.animation = 'fadeInUp 1s forwards';  
+      appearOnScroll.unobserve(entry.target);  
+    });  
+  }, appearOptions);  
+  
+  faders.forEach((fader) => {  
+    fader.style.opacity = 0;  
+    appearOnScroll.observe(fader);  
+  });  
+  
+  // Optional: handle form submission (here just prevent default for now)  
+  const form = document.getElementById('orderForm');  
+  form.addEventListener('submit', (e) => {  
+    e.preventDefault();  
+    alert('Thank you for your order! We will contact you shortly.');  
+    form.reset();  
+  });  
+</script>  
+  
+</body>  
+      </html>
