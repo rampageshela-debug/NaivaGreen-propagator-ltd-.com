@@ -1,188 +1,236 @@
 <!DOCTYPE html>  
 <html lang="en">  
+  
 <head>  
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1" />  
-  <title>Naivagreen Propagator Ltd</title>  
+  <title>Naivagreen Propagator Ltd - Premium Seedlings in Kenya</title>  
   
-  <link  
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"  
-    rel="stylesheet"  
-  />  
-  
-  <!-- Favicon (optional) -->  
-  <!-- <link rel="icon" type="image/png" href="images/favicon.png" /> -->  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />  
   
   <style>  
+    /* Reset and base */  
     * {  
       margin: 0;  
       padding: 0;  
       box-sizing: border-box;  
-      font-family: "Poppins", sans-serif;  
+      font-family: 'Poppins', sans-serif;  
     }  
+  
     html {  
       scroll-behavior: smooth;  
+      scroll-padding-top: 70px; /* Nav height */  
     }  
+  
     body {  
-      background: #f5f7f6;  
-      color: #222;  
+      background: #e6f0e5; /* lighter green */  
+      color: #1b2f1b;  
       line-height: 1.6;  
       min-height: 100vh;  
-      display: flex;  
-      flex-direction: column;  
+      overflow-x: hidden;  
+    }  
+  
+    a {  
+      text-decoration: none;  
+      color: inherit;  
+      cursor: pointer;  
+    }  
+  
+    a:focus,  
+    button:focus {  
+      outline: 2px solid #aad076;  
+      outline-offset: 2px;  
     }  
   
     /* NAVIGATION */  
-  
     nav {  
       position: fixed;  
       width: 100%;  
       top: 0;  
       left: 0;  
+      background: linear-gradient(90deg, #0a3d2e, #175c3d);  
+      color: #fff;  
+      z-index: 10000;  
       display: flex;  
       justify-content: space-between;  
       align-items: center;  
       padding: 15px 30px;  
-      background: #0a3d2e;  
-      color: #fff;  
-      z-index: 1000;  
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.2);  
       font-weight: 600;  
+      user-select: none;  
     }  
+  
     nav .logo {  
       display: flex;  
       align-items: center;  
       gap: 10px;  
+      flex-shrink: 0;  
     }  
+  
     nav .logo img {  
-      height: 45px;  
+      height: 48px;  
       width: auto;  
-      display: block;  
+      border-radius: 8px;  
+      box-shadow: 0 0 5px #4caf50aa;  
+      filter: drop-shadow(0 0 2px #225522);  
     }  
+  
     nav .logo h2 {  
-      font-size: 24px;  
+      font-size: 22px;  
       letter-spacing: 2px;  
-      user-select: none;  
+      color: #c7e6b0;  
+      text-shadow: 0 0 4px #347c17;  
     }  
-    nav .nav-links {  
+  
+    .nav-links {  
       display: flex;  
       gap: 25px;  
       align-items: center;  
-      transition: max-height 0.35s ease, opacity 0.35s ease;  
-    }  
-    nav .nav-links a {  
-      color: #d9f0dc;  
-      text-decoration: none;  
-      position: relative;  
       font-weight: 600;  
-      font-size: 1rem;  
+      transition: max-height 0.3s ease-in-out;  
+    }  
+  
+    .nav-links a {  
+      position: relative;  
       padding: 5px 0;  
-      transition: color 0.3s ease;  
-      user-select: none;  
+      color: #dff3d1;  
+      font-size: 1rem;  
+      border-bottom: 2px solid transparent;  
+      transition: color 0.3s, border-bottom-color 0.3s;  
     }  
-    nav .nav-links a::after {  
-      content: "";  
-      position: absolute;  
-      left: 0;  
-      bottom: 0;  
-      height: 2px;  
-      width: 0%;  
-      background: #28a745;  
-      transition: width 0.3s ease;  
-      border-radius: 2px;  
-    }  
-    nav .nav-links a:hover,  
-    nav .nav-links a:focus {  
-      color: #28a745;  
-    }  
-    nav .nav-links a:hover::after,  
-    nav .nav-links a:focus::after {  
-      width: 100%;  
+  
+    .nav-links a:hover,  
+    .nav-links a:focus {  
+      color: #aad076;  
+      border-bottom-color: #aad076;  
     }  
   
     .menu {  
       display: none;  
-      font-size: 32px;  
+      font-size: 30px;  
+      color: #aad076;  
+      background: none;  
+      border: none;  
       cursor: pointer;  
       user-select: none;  
-      color: #d9f0dc;  
+      transition: color 0.3s ease;  
+    }  
+  
+    .menu:hover,  
+    .menu:focus {  
+      color: #c7e6b0;  
     }  
   
     /* HERO */  
     .hero {  
       height: 100vh;  
-      background: url("images/greenhouse1.jpg") no-repeat center/cover;  
+      background: url('images/greenhouse1.jpg') center center/cover no-repeat fixed;  
       display: flex;  
       align-items: center;  
       justify-content: center;  
-      color: #f1f8f5;  
+      color: #eef6e7;  
       text-align: center;  
-      padding: 0 15px;  
       position: relative;  
+      padding: 20px;  
       overflow: hidden;  
-      margin-top: 70px; /* offset for fixed nav height */  
+    }  
+  
+    /* Dark overlay for text visibility */  
+    .hero::before {  
+      content: '';  
+      position: absolute;  
+      top: 0; left: 0; right: 0; bottom: 0;  
+      background: rgba(10, 61, 46, 0.65);  
+      z-index: 0;  
+      pointer-events: none;  
     }  
   
     .hero-content {  
-      background: rgba(10, 61, 46, 0.75);  
-      padding: 40px 50px;  
-      border-radius: 10px;  
-      max-width: 700px;  
-      animation: fadeInUp 1.2s ease forwards;  
+      background: rgba(26, 65, 33, 0.7);  
+      padding: 50px 40px;  
+      border-radius: 15px;  
+      max-width: 600px;  
+      position: relative;  
+      z-index: 1;  
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  
+  
+      /* Fade-in animation */  
       opacity: 0;  
-      transform: translateY(30px);  
+      transform: translateY(40px);  
+      animation: fadeInUp 1s forwards;  
+      animation-delay: 0.2s;  
     }  
   
     .hero h1 {  
-      font-size: 3rem;  
-      margin-bottom: 15px;  
-      font-weight: 700;  
-      letter-spacing: 1.5px;  
-      line-height: 1.1;  
+      font-size: clamp(2.5rem, 5vw, 3rem);  
+      margin-bottom: 12px;  
+      letter-spacing: 2px;  
+      text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.7);  
     }  
+  
     .hero p {  
-      font-size: 1.3rem;  
+      font-size: 1.2rem;  
       margin-bottom: 25px;  
       font-weight: 500;  
-      letter-spacing: 1.1px;  
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);  
     }  
+  
     .btn {  
-      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);  
+      background: linear-gradient(45deg, #6ebf3b, #44a14d);  
       color: #fff;  
-      padding: 15px 30px;  
-      border-radius: 30px;  
-      text-decoration: none;  
-      font-weight: 600;  
+      padding: 14px 30px;  
+      border-radius: 50px;  
       font-size: 1.1rem;  
+      font-weight: 700;  
       display: inline-block;  
-      box-shadow: 0 6px 15px rgba(39, 174, 96, 0.5);  
-      transition: background 0.3s ease, box-shadow 0.3s ease;  
+      transition: background 0.35s ease, transform 0.2s ease;  
+      box-shadow: 0 6px 10px rgba(68, 161, 77, 0.55);  
       user-select: none;  
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);  
     }  
   
     .btn:hover,  
     .btn:focus {  
-      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);  
-      box-shadow: 0 8px 20px rgba(39, 174, 96, 0.7);  
+      background: linear-gradient(45deg, #4a9334, #327227);  
+      transform: scale(1.05);  
+      box-shadow: 0 8px 15px rgba(89, 167, 72, 0.75);  
       outline: none;  
     }  
   
     /* SECTIONS */  
     .section {  
-      padding: 100px 30px;  
-      text-align: center;  
+      padding: 90px 30px 60px;  
       max-width: 1100px;  
       margin: 0 auto;  
+      text-align: center;  
+  
+      opacity: 0;  
+      transform: translateY(30px);  
+      transition: opacity 0.6s ease, transform 0.6s ease;  
+    }  
+  
+    .section.visible {  
+      opacity: 1;  
+      transform: translateY(0);  
+    }  
+  
+    /* Headings */  
+    h2 {  
+      font-size: 2.6rem;  
+      margin-bottom: 18px;  
+      color: #2a4725;  
+      text-shadow: 0 1px 2px #c1d6aa;  
+      text-transform: uppercase;  
+      letter-spacing: 2px;  
     }  
   
     /* VIDEO */  
     video {  
       width: 100%;  
       max-width: 800px;  
-      border-radius: 12px;  
-      margin-top: 20px;  
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);  
-      outline: none;  
+      border-radius: 15px;  
+      margin-top: 25px;  
+      box-shadow: 0 4px 20px rgba(26, 65, 33, 0.4);  
     }  
   
     /* CARDS */  
@@ -190,179 +238,231 @@
       display: grid;  
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
       gap: 30px;  
-      margin-top: 35px;  
+      margin-top: 30px;  
     }  
   
     .card {  
-      background: #fff;  
-      border-radius: 14px;  
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);  
+      background: #f9fff4;  
+      border-radius: 15px;  
+      box-shadow: 0 10px 20px rgb(102 143 60 / 0.15);  
       overflow: hidden;  
-      transition: transform 0.3s ease, box-shadow 0.3s ease;  
       cursor: default;  
+      transition: transform 0.3s ease, box-shadow 0.3s ease;  
+      display: flex;  
+      flex-direction: column;  
+      align-items: center;  
+      justify-content: flex-start;  
     }  
+  
     .card:hover,  
     .card:focus-within {  
       transform: translateY(-8px);  
-      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);  
+      box-shadow: 0 13px 24px rgb(102 143 60 / 0.35);  
+      outline: none;  
     }  
+  
     .card img {  
       width: 100%;  
-      height: 200px;  
+      height: 180px;  
       object-fit: cover;  
-      display: block;  
-      filter: brightness(95%);  
+      border-bottom: 2px solid #6ebf3b;  
+      transition: transform 0.3s ease;  
     }  
+  
+    .card:hover img {  
+      transform: scale(1.05);  
+    }  
+  
     .card-content {  
-      padding: 25px 20px;  
-      font-weight: 600;  
+      padding: 18px 15px;  
       font-size: 1.1rem;  
-      color: #0a3d2e;  
+      font-weight: 600;  
+      color: #2e4e1f;  
+      user-select: none;  
     }  
   
     /* DARK SECTION */  
     .dark {  
-      background: #0a3d2e;  
-      color: #e9f6ef;  
+      background: linear-gradient(135deg, #0a3d2edd, #144a30dd);  
+      color: #ebf9e8;  
+      box-shadow: inset 0 0 40px rgb(0 0 0 / 0.3);  
+      border-radius: 15px;  
+      padding-top: 70px !important;  
+      padding-bottom: 70px !important;  
     }  
+  
+    .dark h2 {  
+      color: #b5d8a8;  
+      text-shadow: 0 2px 4px rgb(23 29 19 / 0.6);  
+    }  
+  
     .dark .card {  
       background: rgba(255, 255, 255, 0.1);  
-      backdrop-filter: blur(8px);  
+      backdrop-filter: blur(6px);  
       border: 1px solid rgba(255, 255, 255, 0.12);  
-      color: #d1e7d3;  
+      color: #d1e8bb;  
+      box-shadow: none;  
     }  
-    .dark .card-content {  
-      color: #d1e7d3;  
-    }  
-    .dark h2 {  
-      color: #acf2a1;  
-      margin-bottom: 20px;  
-    }  
-    .dark p {  
+  
+    /* WHY US list styling */  
+    #why p {  
+      font-size: 1.2rem;  
+      line-height: 1.8;  
+      max-width: 480px;  
+      margin: 0 auto;  
+      letter-spacing: 0.08em;  
       font-weight: 500;  
-      font-size: 1.15rem;  
-      letter-spacing: 0.02em;  
-      line-height: 1.5;  
+      user-select: none;  
     }  
   
     /* FORM */  
     form {  
-      max-width: 450px;  
-      margin: 0 auto;  
-      text-align: left;  
+      margin-top: 25px;  
+      max-width: 480px;  
+      margin-left: auto;  
+      margin-right: auto;  
+      display: flex;  
+      flex-direction: column;  
+      gap: 18px;  
     }  
   
     form input,  
     form button {  
       width: 100%;  
-      padding: 14px 15px;  
-      margin: 10px 0;  
+      padding: 14px 18px;  
       border-radius: 8px;  
-      border: 1.5px solid #eee;  
+      border: 2px solid #6ebf3b;  
       font-size: 1rem;  
-      font-weight: 400;  
-      outline-offset: 2px;  
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;  
+      font-weight: 500;  
+      transition: border-color 0.3s ease;  
     }  
-    form input:hover,  
+  
     form input:focus {  
-      border-color: #28a745;  
-      box-shadow: 0 0 8px rgba(40, 167, 69, 0.4);  
+      border-color: #4a9334;  
       outline: none;  
+      box-shadow: 0 0 6px #4a9334aa;  
+      background: #f9fff4;  
     }  
   
     form button {  
-      background: #28a745;  
-      color: white;  
-      font-weight: 600;  
+      background: #4a9334;  
+      color: #fff;  
+      font-weight: 700;  
       border: none;  
       cursor: pointer;  
-      transition: background 0.3s ease, box-shadow 0.3s ease;  
+      box-shadow: 0 5px 14px #4a9334aa;  
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;  
       user-select: none;  
     }  
   
     form button:hover,  
     form button:focus {  
-      background: #239636;  
-      box-shadow: 0 6px 15px rgba(35, 150, 54, 0.7);  
+      background-color: #34681a;  
+      box-shadow: 0 7px 20px #34681abb;  
       outline: none;  
+      transform: scale(1.03);  
     }  
   
     /* MAP */  
     iframe {  
-      margin-top: 25px;  
-      border-radius: 14px;  
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);  
+      margin-top: 30px;  
+      border-radius: 15px;  
+      box-shadow: 0 8px 20px rgb(26 65 33 / 0.35);  
       border: none;  
     }  
   
     /* WHATSAPP */  
     .whatsapp {  
       position: fixed;  
-      bottom: 24px;  
-      right: 24px;  
-      background: #25d366;  
+      bottom: 25px;  
+      right: 25px;  
+      background: #25D366;  
       color: #fff;  
-      padding: 18px 20px;  
+      padding: 17px 19px;  
       border-radius: 50%;  
-      font-size: 28px;  
-      text-decoration: none;  
-      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.8);  
-      transition: box-shadow 0.3s ease;  
+      font-size: 26px;  
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.6);  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
       user-select: none;  
-      z-index: 1100;  
+      transition: box-shadow 0.3s ease;  
+      z-index: 10001;  
+      cursor: pointer;  
     }  
+  
     .whatsapp:hover,  
     .whatsapp:focus {  
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 1);  
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.9);  
       outline: none;  
     }  
   
-    /* MOBILE RESPONSIVE */  
-    @media (max-width: 768px) {  
-      nav .menu {  
-        display: block;  
+    /* FOOTER */  
+    footer {  
+      text-align: center;  
+      padding: 22px 20px;  
+      background: #06281f;  
+      color: #b7d59a;  
+      font-size: 0.9rem;  
+      user-select: none;  
+    }  
+  
+    /* MEDIA QUERIES */  
+    @media (max-width: 900px) {  
+      nav {  
+        padding: 15px 20px;  
       }  
-      nav .nav-links {  
+    }  
+  
+    @media (max-width: 768px) {  
+      .nav-links {  
         position: fixed;  
         top: 70px;  
         left: 0;  
         width: 100%;  
-        background: #0a3d2e;  
+        background: #175c3ddd;  
         flex-direction: column;  
+        display: none;  
         max-height: 0;  
         overflow: hidden;  
-        opacity: 0;  
-        transition: max-height 0.4s ease, opacity 0.4s ease;  
-        z-index: 999;  
-      }  
-      nav .nav-links.active {  
-        max-height: 350px;  
-        opacity: 1;  
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  
-      }  
-      nav .nav-links a {  
-        margin: 18px 0;  
-        font-size: 1.2rem;  
+        padding-top: 15px;  
+        padding-bottom: 15px;  
+        box-shadow: 0 3px 15px rgb(0 0 0 / 0.35);  
+        transition: max-height 0.3s ease-in-out;  
+        z-index: 9999;  
       }  
   
-      .hero-content {  
-        padding: 30px 20px;  
+      .nav-links.active {  
+        display: flex;  
+        max-height: 350px;  
       }  
-      .hero h1 {  
-        font-size: 2.4rem;  
+  
+      .nav-links a {  
+        padding: 12px 0;  
+        margin: 0;  
+        font-size: 1.2rem;  
+        color: #dff3d1;  
+        border-bottom: 1px solid rgba(223, 243, 209, 0.3);  
+        user-select: none;  
       }  
-      .hero p {  
-        font-size: 1.1rem;  
+  
+      .nav-links a:last-child {  
+        border-bottom: none;  
+      }  
+  
+      .menu {  
+        display: block;  
+        z-index: 10001;  
       }  
     }  
   
-    /* Animations */  
+    /* ANIMATIONS */  
     @keyframes fadeInUp {  
       0% {  
         opacity: 0;  
-        transform: translateY(30px);  
+        transform: translateY(25px);  
       }  
+  
       100% {  
         opacity: 1;  
         transform: translateY(0);  
@@ -372,97 +472,101 @@
 </head>  
   
 <body>  
-  <!-- NAV -->  
-  <nav role="navigation" aria-label="Primary Navigation">  
-    <div class="logo" tabindex="0">  
-      <img src="images/logo2.png" alt="Naivagreen Logo" />  
+  <!-- NAVIGATION -->  
+  <nav role="navigation" aria-label="Main menu">  
+    <div class="logo">  
+      <img src="images/logo2.png" alt="Naivagreen logo" loading="lazy" />  
       <h2>NAIVAGREEN</h2>  
     </div>  
   
-    <div class="menu" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key==='Enter') toggleMenu()">  
+    <button class="menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="links" id="menu-button">  
       ☰  
-    </div>  
+    </button>  
   
     <div id="links" class="nav-links">  
-      <a href="#home" role="link">Home</a>  
-      <a href="#about" role="link">About</a>  
-      <a href="#video" role="link">Video</a>  
-      <a href="#vision" role="link">Vision</a>  
-      <a href="#products" role="link">Products</a>  
-      <a href="#why" role="link">Why Us</a>  
-      <a href="#contact" role="link">Contact</a>  
+      <a href="#home" tabindex="0">Home</a>  
+      <a href="#about" tabindex="0">About</a>  
+      <a href="#video" tabindex="0">Video</a>  
+      <a href="#vision" tabindex="0">Vision</a>  
+      <a href="#products" tabindex="0">Products</a>  
+      <a href="#why" tabindex="0">Why Us</a>  
+      <a href="#contact" tabindex="0">Contact</a>  
     </div>  
   </nav>  
   
   <!-- HERO -->  
-  <section id="home" class="hero" aria-label="Hero Section">  
+  <section id="home" class="hero" tabindex="-1" aria-label="Hero section">  
     <div class="hero-content">  
       <h1>Premium Seedlings in Kenya</h1>  
       <p>Healthy • Certified • High Yield</p>  
-      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener noreferrer">Order Now</a>  
+      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener" aria-label="Order now on Whatsapp">Order Now</a>  
     </div>  
   </section>  
   
   <!-- ABOUT -->  
-  <section id="about" class="section" aria-labelledby="about-title">  
+  <section id="about" class="section" tabindex="-1" aria-labelledby="about-title">  
     <h2 id="about-title">About Us</h2>  
-    <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>  
+    <p>  
+      We provide strong, disease-free seedlings to help farmers maximize yields and profits with sustainable agricultural  
+      practices.  
+    </p>  
   </section>  
   
   <!-- VIDEO -->  
-  <section id="video" class="section" aria-labelledby="video-title">  
-    <h2 id="video-title">Our Farm in Action</h2>  
-    <video controls aria-label="Naivagreen Farm video">  
+  <section id="video" class="section" tabindex="-1" aria-label="Farm video section">  
+    <h2>Our Farm in Action</h2>  
+    <video controls preload="metadata" poster="images/video-poster.jpg" aria-describedby="video-desc" tabindex="0">  
       <source src="images/naivagreen-video.mp4" type="video/mp4" />  
-      Your browser does not support the video tag.  
+      Sorry, your browser does not support the video tag.  
     </video>  
+    <p id="video-desc" class="sr-only">A video showing the operations at Naivagreen farm.</p>  
   </section>  
   
   <!-- VISION -->  
-  <section id="vision" class="section dark" aria-labelledby="vision-title">  
+  <section id="vision" class="section dark" tabindex="-1" aria-labelledby="vision-title">  
     <h2 id="vision-title">Vision &amp; Mission</h2>  
     <div class="cards">  
-      <article class="card" tabindex="0">  
+      <article class="card" tabindex="0" aria-label="Vision card">  
         <div class="card-content">  
           <h3>🌍 Vision</h3>  
-          <p>To lead Africa in quality seedling production.</p>  
+          <p>To lead Africa in quality seedling production, empowering farmers to grow sustainably.</p>  
         </div>  
       </article>  
   
-      <article class="card" tabindex="0">  
+      <article class="card" tabindex="0" aria-label="Mission card">  
         <div class="card-content">  
           <h3>🚀 Mission</h3>  
-          <p>Deliver high-quality seedlings and empower farmers.</p>  
+          <p>Deliver high-quality seedlings and empower farmers through expert guidance and support.</p>  
         </div>  
       </article>  
     </div>  
   </section>  
   
   <!-- PRODUCTS -->  
-  <section id="products" class="section" aria-labelledby="products-title">  
+  <section id="products" class="section" tabindex="-1" aria-labelledby="products-title">  
     <h2 id="products-title">Our Seedlings</h2>  
-    <div class="cards">  
-      <article class="card" tabindex="0">  
-        <img src="images/spinach.jpg" alt="Spinach Seedlings" />  
+    <div class="cards" role="list">  
+      <article class="card" role="listitem" tabindex="0">  
+        <img src="images/spinach.jpg" alt="Spinach Seedlings" loading="lazy" />  
         <div class="card-content">Spinach</div>  
       </article>  
-      <article class="card" tabindex="0">  
-        <img src="images/tomato.jpg" alt="Tomato Seedlings" />  
+      <article class="card" role="listitem" tabindex="0">  
+        <img src="images/tomato.jpg" alt="Tomato Seedlings" loading="lazy" />  
         <div class="card-content">Tomato</div>  
       </article>  
-      <article class="card" tabindex="0">  
-        <img src="images/capsicum.jpg" alt="Capsicum Seedlings" />  
+      <article class="card" role="listitem" tabindex="0">  
+        <img src="images/capsicum.jpg" alt="Capsicum Seedlings" loading="lazy" />  
         <div class="card-content">Capsicum</div>  
       </article>  
-      <article class="card" tabindex="0">  
-        <img src="images/basil-aroma.jpg" alt="Basil Seedlings" />  
+      <article class="card" role="listitem" tabindex="0">  
+        <img src="images/basil-aroma.jpg" alt="Basil Seedlings" loading="lazy" />  
         <div class="card-content">Basil</div>  
       </article>  
     </div>  
   </section>  
   
   <!-- WHY US -->  
-  <section id="why" class="section dark" aria-labelledby="why-title">  
+  <section id="why" class="section dark" tabindex="-1" aria-labelledby="why-title">  
     <h2 id="why-title">Why Choose Us</h2>  
     <p>  
       ✔ Certified seedlings<br />  
@@ -473,59 +577,111 @@
   </section>  
   
   <!-- CONTACT -->  
-  <section id="contact" class="section" aria-labelledby="contact-title">  
+  <section id="contact" class="section" tabindex="-1" aria-labelledby="contact-title">  
     <h2 id="contact-title">Contact &amp; Order</h2>  
   
-    <form>  
-      <label for="name" class="sr-only">Your Name</label>  
-      <input type="text" id="name" placeholder="Your Name" required />  
-  
-      <label for="phone" class="sr-only">Phone Number</label>  
-      <input type="tel" id="phone" placeholder="Phone Number" required pattern="[0-9+ ]{7,15}" />  
-  
-      <label for="seedling" class="sr-only">Seedling Type</label>  
-      <input type="text" id="seedling" placeholder="Seedling Type" />  
-  
-      <label for="quantity" class="sr-only">Quantity</label>  
-      <input type="number" id="quantity" placeholder="Quantity" min="1" />  
-  
-      <button type="submit">Submit Order</button>  
+    <form id="orderForm" aria-describedby="form-desc">  
+      <p id="form-desc" class="sr-only">Fill in your details to place an order for seedlings.</p>  
+      <input type="text" name="name" placeholder="Your Name" required aria-required="true" />  
+      <input type="tel" name="phone" placeholder="Phone Number" required pattern="^\+?[0-9\s\-]{7,15}$"  
+        aria-required="true" />  
+      <input type="text" name="type" placeholder="Seedling Type" />  
+      <input type="number" name="quantity" placeholder="Quantity" min="1" />  
+      <button type="submit" aria-label="Submit Order">Submit Order</button>  
     </form>  
   
-    <iframe  
-      src="https://www.google.com/maps?q=Naivasha&output=embed"  
-      width="100%"  
-      height="300"  
-      aria-label="Location map of Naivasha"  
-      loading="lazy"  
-    ></iframe>  
+    <iframe src="https://www.google.com/maps?q=Naivasha&output=embed" width="100%" height="300" aria-label="Naivasha location on map"  
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
   </section>  
   
-  <footer style="text-align:center; padding:20px; background:#06281f; color:#acf2a1; font-weight:600;">  
-    &copy; 2026 Naivagreen Propagator Ltd  
+  <!-- FOOTER -->  
+  <footer>  
+    &copy; <span id="year"></span> Naivagreen Propagator Ltd  
   </footer>  
   
   <!-- WHATSAPP -->  
-  <a  
-    href="https://wa.me/254729526873"  
-    class="whatsapp"  
-    target="_blank"  
-    rel="noopener noreferrer"  
-    aria-label="Chat with Naivagreen on WhatsApp"  
-    >💬</a  
-  >  
+  <a href="https://wa.me/254729526873" class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" tabindex="0">💬</a>  
   
+  <!-- JAVASCRIPT -->  
   <script>  
-    const menuBtn = document.querySelector(".menu");  
-    const navLinks = document.getElementById("links");  
+    // Navigation toggle for mobile menu with ARIA update  
+    const menuButton = document.getElementById('menu-button');  
+    const navLinks = document.getElementById('links');  
   
-    function toggleMenu() {  
-      navLinks.classList.toggle("active");  
-      // Update aria-expanded for accessibility  
-      const expanded = menuBtn.getAttribute("aria-expanded") === "true";  
-      menuBtn.setAttribute("aria-expanded", !expanded);  
-    }  
+    menuButton.addEventListener('click', () => {  
+      navLinks.classList.toggle('active');  
+      const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;  
+      menuButton.setAttribute('aria-expanded', !expanded);  
+    });  
+  
+    // Close menu on link click (Mobile UX)  
+    navLinks.querySelectorAll('a').forEach(link => {  
+      link.addEventListener('click', () => {  
+        if (window.innerWidth < 768) {  
+          navLinks.classList.remove('active');  
+          menuButton.setAttribute('aria-expanded', false);  
+        }  
+      });  
+    });  
+  
+    // Fade in animate sections on scroll using IntersectionObserver  
+    const sections = document.querySelectorAll('.section:not(.hero-content)');  
+  
+    const options = {  
+      root: null,  
+      rootMargin: '0px 0px -100px 0px',  
+      threshold: 0  
+    };  
+  
+    const observer = new IntersectionObserver(function (entries, observer) {  
+      entries.forEach(entry => {  
+        if (entry.isIntersecting) {  
+          entry.target.classList.add('visible');  
+          observer.unobserve(entry.target);  
+        }  
+      });  
+    }, options);  
+  
+    sections.forEach(section => {  
+      observer.observe(section);  
+    });  
+  
+    // Set current year dynamically in footer  
+    document.getElementById('year').textContent = new Date().getFullYear();  
+  
+    // Optional: Basic form validation and alert on submit (stub)  
+    document.getElementById('orderForm').addEventListener('submit', function (e) {  
+      e.preventDefault();  
+  
+      const name = e.target.name.value.trim();  
+      const phone = e.target.phone.value.trim();  
+  
+      if (!name || !phone) {  
+        alert('Please fill out required fields: Name and Phone Number.');  
+        return;  
+      }  
+  
+      // Here you can implement API submission logic, e.g. AJAX or form action.  
+  
+      alert('Thank you for your order! We will get back to you shortly.');  
+      e.target.reset();  
+    });  
   </script>  
   
+  <style>  
+    /* Accessibility helper for screen reader only text */  
+    .sr-only {  
+      position: absolute !important;  
+      width: 1px !important;  
+      height: 1px !important;  
+      padding: 0 !important;  
+      margin: -1px !important;  
+      overflow: hidden !important;  
+      clip: rect(0, 0, 0, 0) !important;  
+      white-space: nowrap !important;  
+      border: 0 !important;  
+    }  
+  </style>  
 </body>  
+  
       </html>
