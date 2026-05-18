@@ -3,107 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naivagreen Propagator Ltd</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Premium Seedlings Farm</title>
 
+<!-- SEO -->
+<meta name="description" content="Premium quality seedlings in Kenya. Order via WhatsApp easily.">
+<meta name="keywords" content="seedlings Kenya, tomato seedlings, sukuma wiki, spinach">
+
+<!-- Smooth Scroll -->
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html{scroll-behavior:smooth;}
-body{background:#f5f7f6;color:#222;}
+html{
+  scroll-behavior:smooth;
+}
+
+:root{
+  --primary:#0c7a3e;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  color:#333;
+}
 
 /* NAV */
 nav{
-position:fixed;width:100%;top:0;
-display:flex;justify-content:space-between;align-items:center;
-padding:15px 30px;background:#0a3d2e;color:#fff;z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 20px;
+  background:#fff;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-.logo{display:flex;align-items:center;gap:10px;}
-.logo img{height:45px;}
-.logo h2{font-size:20px;}
+.logo{
+  font-weight:bold;
+  color:var(--primary);
+}
 
-.nav-links{display:flex;}
-.nav-links a{margin-left:20px;color:#fff;text-decoration:none;}
+.menu-btn{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
 
-.menu{display:none;font-size:28px;cursor:pointer;}
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+}
 
 /* HERO */
 .hero{
-height:100vh;
-background:url('images/greenhouse1.jpg') center/cover;
-display:flex;align-items:center;justify-content:center;
-color:#fff;text-align:center;
+  height:90vh;
+  background:url('images/greenhouse1.jpg') center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+  position:relative;
 }
 
-.hero-content{
-background:rgba(0,0,0,0.6);
-padding:40px;border-radius:10px;
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
 }
 
-.hero h1{font-size:3rem;}
-.btn{
-background:#28a745;color:#fff;padding:12px 25px;
-border-radius:5px;text-decoration:none;margin-top:15px;display:inline-block;
+.hero h1{
+  position:relative;
+  font-size:3rem;
 }
 
-/* SECTIONS */
-.section{padding:100px 30px;text-align:center;}
+/* FADE ANIMATION */
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp 1s ease forwards;
+}
 
-/* VIDEO */
-video{width:100%;max-width:800px;border-radius:10px;margin-top:20px;}
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;margin-top:30px;
+/* SECTION */
+.section{
+  padding:50px 20px;
+  text-align:center;
+}
+
+/* SCROLL REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
 }
 
 .card{
-background:#fff;border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-overflow:hidden;
+  padding:15px;
+  border-radius:10px;
+  transition:0.3s;
+  background:#fff;
 }
-.card img{width:100%;height:200px;object-fit:cover;}
-.card-content{padding:20px;}
 
-/* DARK */
-.dark{background:#0a3d2e;color:#fff;}
-.dark .card{
-background:#ffffff10;
-backdrop-filter:blur(5px);
-border:1px solid rgba(255,255,255,0.1);
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* BUTTON */
+.btn{
+  background:var(--primary);
+  color:#fff;
+  padding:12px 20px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  box-shadow:0 0 15px rgba(12,122,62,0.6);
+}
+
+.btn:active{
+  transform:scale(0.97);
 }
 
 /* FORM */
-form input, form button{
-width:100%;padding:12px;margin:10px 0;
-border-radius:5px;border:none;
+form{
+  max-width:400px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
-form button{background:#28a745;color:#fff;}
 
-/* MAP */
-iframe{margin-top:20px;border-radius:10px;}
+input, select{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
 
-/* WHATSAPP */
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;color:#fff;
-padding:15px;border-radius:50%;
-font-size:24px;text-decoration:none;
+/* TRUST */
+.trust{
+  background:#f5f5f5;
+  padding:40px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-.menu{display:block;}
-.nav-links{
-position:absolute;top:70px;left:0;width:100%;
-background:#0a3d2e;flex-direction:column;
-display:none;text-align:center;
-}
-.nav-links a{margin:15px 0;}
-.nav-links.active{display:flex;}
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-links{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:60px;
+    right:20px;
+    background:#fff;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
 }
 </style>
 </head>
@@ -112,108 +211,118 @@ display:none;text-align:center;
 
 <!-- NAV -->
 <nav>
-<div class="logo">
-<img src="images/logo2.png">
-<h2>NAIVAGREEN</h2>
-</div>
-
-<div class="menu" onclick="toggleMenu()">☰</div>
-
-<div id="links" class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#video">Video</a>
-<a href="#vision">Vision</a>
-<a href="#products">Products</a>
-<a href="#why">Why Us</a>
-<a href="#contact">Contact</a>
-</div>
+  <div class="logo">🌱 Premium Farm</div>
+  <div class="menu-btn" id="menuBtn">☰</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#order">Order</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-<div class="hero-content">
-<h1>Premium Seedlings in Kenya</h1>
-<p>Healthy • Certified • High Yield</p>
-<a href="https://wa.me/254729526873" class="btn">Order Now</a>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-<h2>About Us</h2>
-<p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>
-</section>
-
-<!-- VIDEO -->
-<section id="video" class="section">
-<h2>Our Farm in Action</h2>
-<video controls>
-<source src="images/naivagreen-video.mp4">
-</video>
-</section>
-
-<!-- VISION -->
-<section id="vision" class="section dark">
-<h2>Vision & Mission</h2>
-<div class="cards">
-<div class="card"><div class="card-content">
-<h3>🌍 Vision</h3>
-<p>To lead Africa in quality seedling production.</p>
-</div></div>
-
-<div class="card"><div class="card-content">
-<h3>🚀 Mission</h3>
-<p>Deliver high-quality seedlings and empower farmers.</p>
-</div></div>
-</div>
+<section class="hero">
+  <h1 class="fade-in">Premium Quality Seedlings 🌿</h1>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="section">
-<h2>Our Seedlings</h2>
-<div class="cards">
-<div class="card"><img src="images/spinach.jpg"><div class="card-content">Spinach</div></div>
-<div class="card"><img src="images/tomato.jpg"><div class="card-content">Tomato</div></div>
-<div class="card"><img src="images/capsicum.jpg"><div class="card-content">Capsicum</div></div>
-<div class="card"><img src="images/basil-aroma.jpg"><div class="card-content">Basil</div></div>
-</div>
+<section class="section reveal" id="products">
+  <h2>Our Seedlings</h2>
+
+  <div class="products">
+    <div class="card">
+      <img src="images/tomato.jpg" loading="lazy">
+      <h3>Tomato</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/spinach.jpg" loading="lazy">
+      <h3>Spinach</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/sukuma.jpg" loading="lazy">
+      <h3>Sukuma Wiki</h3>
+    </div>
+  </div>
 </section>
 
-<!-- WHY US -->
-<section id="why" class="section dark">
-<h2>Why Choose Us</h2>
-<p>✔ Certified seedlings<br>✔ High survival rate<br>✔ Expert support<br>✔ Affordable bulk supply</p>
+<!-- TRUST -->
+<section class="trust reveal">
+  <h2>Trusted by 500+ Farmers 🌱</h2>
+  <p>We deliver quality and consistency across Kenya.</p>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-<h2>Contact & Order</h2>
+<!-- ORDER -->
+<section class="section reveal" id="order">
+  <h2>Place Your Order</h2>
 
-<form>
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Phone Number" required>
-<input type="text" placeholder="Seedling Type">
-<input type="number" placeholder="Quantity">
-<button>Submit Order</button>
-</form>
+  <form id="orderForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
 
-<iframe src="https://www.google.com/maps?q=Naivasha&output=embed" width="100%" height="300"></iframe>
+    <select name="seedlingType">
+      <option>Tomato</option>
+      <option>Spinach</option>
+      <option>Sukuma Wiki</option>
+    </select>
 
+    <input type="number" name="quantity" placeholder="Quantity" required>
+
+    <button class="btn">Order via WhatsApp</button>
+  </form>
 </section>
-
-<footer style="text-align:center;padding:20px;background:#06281f;color:#fff;">
-© 2026 Naivagreen Propagator Ltd
-</footer>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/254729526873" class="whatsapp">💬</a>
 
 <script>
-function toggleMenu(){
-document.getElementById("links").classList.toggle("active");
-}
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.onclick = () => {
+  navLinks.classList.toggle("active");
+};
+
+/* Close menu */
+document.querySelectorAll('.nav-links a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    navLinks.classList.remove('active');
+  });
+});
+
+/* Scroll reveal */
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+
+/* WhatsApp Order */
+const form = document.getElementById("orderForm");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = form.name.value;
+  const phone = form.phone.value;
+  const type = form.seedlingType.value;
+  const qty = form.quantity.value;
+
+  const message = `Hello, I want to order seedlings:
+Name: ${name}
+Phone: ${phone}
+Type: ${type}
+Quantity: ${qty}`;
+
+  const url = `https://wa.me/254729526873?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+
+  form.reset();
+});
 </script>
 
 </body>
-  </html>
+</html>
