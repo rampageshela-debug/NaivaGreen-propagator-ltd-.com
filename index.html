@@ -3,10 +3,10 @@
 <head>  
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1" />  
-  <title>NAIVAGREEN PROPAGATORS LTD </title>  
+  <title>NAIVAGREEN PROPAGATOR</title>  
   
-  <!-- Google Fonts -->  
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />  
+  <!-- Google Fonts: Poppins & Montserrat (for advanced modern look) -->  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />  
   
   <style>  
     /* Reset and base */  
@@ -24,10 +24,9 @@
     body {  
       line-height: 1.6;  
       font-size: 1rem;  
+      background: linear-gradient(135deg, #e9f4ee 0%, #d9efe3 100%);  
       min-height: 100vh;  
-      display: flex;  
-      flex-direction: column;  
-      background-color: #e9f4ee;  
+      position: relative;  
     }  
   
     /* NAVIGATION */  
@@ -40,7 +39,10 @@
       justify-content: space-between;  
       align-items: center;  
       padding: 12px 40px;  
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
+      box-shadow:  
+        0 0 12px #1eff87,  
+        0 0 24px #3afebd,  
+        0 0 40px #19a26f;  
       z-index: 10000;  
       transition: background 0.3s ease;  
     }  
@@ -49,31 +51,107 @@
       transition: background 0.3s ease;  
     }  
   
-    /* Logo and heading - flex align, small gap */  
+    /* Logo container with glowing frame */  
     .logo {  
+      position: relative;  
       display: flex;  
       align-items: center;  
-      gap: 12px;  
+      gap: 16px;  
       cursor: pointer;  
+      padding: 10px 20px;  
+      border-radius: 18px;  
+      background: #072617;  
+      box-shadow:  
+        0 0 6px #44c767,  
+        0 0 14px #59d378,  
+        0 0 28px #5fe289,  
+        0 0 40px #38d37c,  
+        inset 0 0 8px #81f4a2;  
+      transition: box-shadow 0.4s ease;  
     }  
+    .logo:hover {  
+      box-shadow:  
+        0 0 12px #4fff8e,  
+        0 0 24px #66f1af,  
+        0 0 40px #73fcbb,  
+        0 0 50px #52dc9c,  
+        inset 0 0 14px #a0ffc3;  
+    }  
+    /* Glowing frame around the logo image using pseudo-elements */  
+    .logo::before,  
+    .logo::after {  
+      content: "";  
+      position: absolute;  
+      border-radius: 20px;  
+      pointer-events: none;  
+      animation: glowPulse 3s infinite ease-in-out;  
+      z-index: 0;  
+    }  
+    .logo::before {  
+      top: -8px;  
+      left: -8px;  
+      right: -8px;  
+      bottom: -8px;  
+      border: 3.5px solid #4bf384;  
+      filter: blur(8px);  
+      opacity: 0.8;  
+      animation-delay: 0s;  
+    }  
+    .logo::after {  
+      top: -4px;  
+      left: -4px;  
+      right: -4px;  
+      bottom: -4px;  
+      border: 2px solid #00ff8c;  
+      filter: blur(3px);  
+      opacity: 0.6;  
+      animation-delay: 1.5s;  
+    }  
+    @keyframes glowPulse {  
+      0%, 100% {  
+        opacity: 0.8;  
+        box-shadow: 0 0 6px #00ff9d, 0 0 12px #00e36b;  
+      }  
+      50% {  
+        opacity: 1;  
+        box-shadow: 0 0 10px #24ffb4, 0 0 20px #27e98a;  
+      }  
+    }  
+  
+    /* Logo image styles */  
     .logo img {  
-      height: 50px;  
+      height: 54px;  
       aspect-ratio: 1/1;  
       object-fit: contain;  
-      transition: transform 0.3s ease;  
+      border-radius: 50%;  
+      box-shadow:  
+        0 0 8px #56de9f,  
+        0 0 16px #3ed48a;  
+      transition: transform 0.4s ease, box-shadow 0.4s ease;  
+      z-index: 1;  
+      position: relative;  
+      background: #0a3b27;  
     }  
-    .logo img:hover,  
-    .logo:focus {  
-      outline: none;  
-      transform: scale(1.1);  
+    .logo img:hover {  
+      transform: scale(1.17) rotate(5deg);  
+      box-shadow:  
+        0 0 18px #78f7bb,  
+        0 0 36px #61e99f;  
     }  
+  
+    /* Logo heading */  
     .logo h2 {  
-      font-weight: 700;  
-      font-size: 1.6rem;  
+      font-family: 'Montserrat', sans-serif;  
+      font-weight: 800;  
+      font-size: 1.9rem;  
       color: #bbe6b4;  
-      letter-spacing: 2px;  
-      text-shadow: 0 1px 3px #004d25;  
+      letter-spacing: 2.5px;  
+      text-shadow:  
+        0 0 5px #59df8a,  
+        0 2px 10px #0c4518;  
       user-select: none;  
+      z-index: 1;  
+      position: relative;  
     }  
   
     /* Nav links container */  
@@ -88,11 +166,12 @@
       color: #bbe6b4;  
       text-transform: uppercase;  
       font-weight: 600;  
-      font-size: 0.9rem;  
+      font-size: 0.95rem;  
       letter-spacing: 1.5px;  
       padding: 6px;  
       transition: color 0.3s ease;  
-      outline-offset: 3px;  
+      font-family: 'Poppins', sans-serif;  
+      user-select: none;  
     }  
     .nav-links a::after {  
       content: '';  
@@ -106,13 +185,10 @@
       bottom: 0;  
       left: 0;  
     }  
-    .nav-links a:hover,  
-    .nav-links a:focus-visible {  
+    .nav-links a:hover {  
       color: #51c36a;  
-      outline: none;  
     }  
-    .nav-links a:hover::after,  
-    .nav-links a:focus-visible::after {  
+    .nav-links a:hover::after {  
       width: 100%;  
     }  
     /* Active nav link highlight based on #hash */  
@@ -131,10 +207,8 @@
       user-select: none;  
       transition: color 0.3s ease;  
     }  
-    .menu:hover,  
-    .menu:focus {  
+    .menu:hover {  
       color: #51c36a;  
-      outline: none;  
     }  
   
     /* HERO Section */  
@@ -153,42 +227,47 @@
       text-align: center;  
       padding: 0 20px;  
       animation: fadeInUp 1.5s ease forwards;  
-      margin-top: 68px; /* nav height + some gap */  
     }  
   
     .hero-content {  
       max-width: 750px;  
-      background: rgba(11, 60, 27, 0.75);  
+      background: rgba(11, 60, 27, 0.85);  
       padding: 50px 40px;  
-      border-radius: 15px;  
-      box-shadow: 0 12px 35px rgba(7, 38, 14, 0.7);  
+      border-radius: 20px;  
+      box-shadow: 0 12px 35px rgba(7, 38, 14, 0.85);  
       transform-style: preserve-3d;  
       perspective: 1000px;  
       animation: float 6s ease-in-out infinite;  
-      user-select: none;  
+      font-family: 'Montserrat', sans-serif;  
     }  
     .hero h1 {  
       font-size: 3rem;  
-      font-weight: 700;  
-      margin-bottom: 10px;  
-      letter-spacing: 2px;  
-      text-shadow: 2px 3px 7px #003314;  
+      font-weight: 900;  
+      margin-bottom: 15px;  
+      letter-spacing: 3px;  
+      color: #a5f3b8;  
+      text-shadow:  
+        2px 3px 8px #00401b,  
+        0 0 10px #6fad6b;  
     }  
     .hero p {  
-      font-size: 1.4rem;  
-      font-weight: 600;  
-      letter-spacing: 2px;  
-      text-shadow: 1px 2px 5px #00270f;  
+      font-size: 1.5rem;  
+      font-weight: 700;  
+      letter-spacing: 2.5px;  
+      color: #cdf4d0;  
+      text-shadow: 1px 2px 6px #003814;  
     }  
     .btn {  
       display: inline-block;  
-      margin-top: 25px;  
+      margin-top: 30px;  
       background: #51c36a;  
       color: #fff;  
-      padding: 15px 40px;  
+      padding: 15px 50px;  
       border-radius: 50px;  
       font-weight: 700;  
+      font-family: 'Montserrat', sans-serif;  
       text-decoration: none;  
+      letter-spacing: 1.6px;  
       transition: background 0.4s ease;  
       box-shadow: 0 6px 15px #4caf50aa;  
       user-select: none;  
@@ -206,6 +285,7 @@
       text-align: center;  
       max-width: 1200px;  
       margin: 0 auto;  
+      font-family: 'Poppins', sans-serif;  
     }  
     .section h2 {  
       font-weight: 700;  
@@ -214,6 +294,7 @@
       color: #0a4a32;  
       letter-spacing: 1.3px;  
       text-shadow: 0 1.5px 2px rgba(0, 60, 20, 0.2);  
+      font-family: 'Montserrat', sans-serif;  
     }  
     .section p {  
       max-width: 700px;  
@@ -222,6 +303,7 @@
       font-size: 1.15rem;  
       color: #144621;  
       font-weight: 500;  
+      font-family: 'Poppins', sans-serif;  
     }  
   
     /* VIDEO */  
@@ -232,8 +314,8 @@
       box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);  
       margin-top: 1.5rem;  
       transition: transform 0.4s ease;  
-      cursor: pointer;  
-      outline-offset: 3px;  
+      border: 4px solid #51c36a;  
+      background: #000;  
     }  
     video:hover,  
     video:focus {  
@@ -255,15 +337,22 @@
       overflow: hidden;  
       cursor: pointer;  
       transition: background 0.3s ease, transform 0.3s ease;  
-      outline-offset: 3px;  
+      user-select: none;  
+      outline-offset: 2px;  
+      outline-color: transparent;  
     }  
-    .card:hover,  
-    .card:focus {  
+    .card:focus-visible {  
+      outline: 3px solid #51c36a;  
+      outline-offset: 4px;  
+    }  
+    .card:hover {  
       background: #51c36a;  
       transform: translateY(-8px);  
       box-shadow: 0 12px 30px rgb(0 77 35 / 0.5);  
       color: #fff;  
-      outline: none;  
+    }  
+    .card:hover img {  
+      filter: brightness(0.7);  
     }  
     .card img {  
       width: 100%;  
@@ -271,22 +360,16 @@
       object-fit: cover;  
       border-bottom: 2.5px solid #0f7a4d;  
       transition: filter 0.3s ease;  
-      user-select: none;  
-    }  
-    .card:hover img,  
-    .card:focus img {  
-      filter: brightness(0.7);  
     }  
     .card-content {  
       padding: 20px 15px;  
       font-weight: 600;  
       font-size: 1.15rem;  
       color: #0a4a32;  
-      user-select: none;  
       transition: color 0.3s ease;  
+      font-family: 'Montserrat', sans-serif;  
     }  
-    .card:hover .card-content,  
-    .card:focus .card-content {  
+    .card:hover .card-content {  
       color: #e9f4ee;  
     }  
   
@@ -294,6 +377,7 @@
     .dark {  
       background: #0a4a32;  
       color: #bbe6b4;  
+      font-family: 'Poppins', sans-serif;  
     }  
     .dark .card {  
       background: #1a5c3d;  
@@ -302,10 +386,12 @@
     }  
     .dark .card-content {  
       color: #bbe6b4;  
+      font-weight: 600;  
     }  
     .dark h2 {  
       color: #bbf7bd;  
       text-shadow: 0 2px 5px #16612c;  
+      font-family: 'Montserrat', sans-serif;  
     }  
     .dark p {  
       color: #d0f2bc;  
@@ -316,6 +402,8 @@
       max-width: 480px;  
       margin: 0 auto;  
       text-align: left;  
+      font-family: 'Poppins', sans-serif;  
+      user-select: none;  
     }  
     form input,  
     form button {  
@@ -327,13 +415,15 @@
       font-weight: 600;  
       font-size: 1rem;  
       color: #144621;  
-      transition: border-color 0.3s ease;  
-      user-select: text;  
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;  
+      font-family: 'Poppins', sans-serif;  
     }  
-    form input:focus {  
+    form input:focus,  
+    form button:focus {  
       outline: none;  
       border-color: #3c8c3b;  
       background: #e9f9e9;  
+      box-shadow: 0 0 8px #51c36aaa;  
     }  
     form button {  
       border: none;  
@@ -343,13 +433,11 @@
       box-shadow: 0 6px 20px #4caf50aa;  
       font-weight: 700;  
       letter-spacing: 1.2px;  
-      transition: background 0.4s ease;  
+      transition: background 0.4s ease, box-shadow 0.4s ease;  
     }  
-    form button:hover,  
-    form button:focus {  
+    form button:hover {  
       background: #3c8c3b;  
       box-shadow: 0 8px 25px #2f6c2acc;  
-      outline: none;  
     }  
   
     /* MAP */  
@@ -364,7 +452,14 @@
       display: block;  
       margin-left: auto;  
       margin-right: auto;  
-      user-select: none;  
+      transition: box-shadow 0.3s ease;  
+    }  
+    iframe:hover,  
+    iframe:focus {  
+      box-shadow:  
+        0 0 15px #51c36a,  
+        0 0 30px #3cc86d;  
+      outline: none;  
     }  
   
     /* WHATSAPP BUTTON */  
@@ -374,17 +469,14 @@
       right: 28px;  
       background: #25d366;  
       color: #fff;  
-      padding: 18px;  
+      padding: 20px 22px;  
       border-radius: 50%;  
-      font-size: 28px;  
+      font-size: 30px;  
       box-shadow: 0 10px 20px #25d366aa;  
       text-decoration: none;  
       transition: background 0.3s ease, box-shadow 0.3s ease;  
       z-index: 9999;  
       user-select: none;  
-      display: flex;  
-      justify-content: center;  
-      align-items: center;  
     }  
     .whatsapp:hover,  
     .whatsapp:focus {  
@@ -402,9 +494,10 @@
       font-weight: 600;  
       font-size: 0.9rem;  
       letter-spacing: 1.1px;  
-      margin-top: auto;  
+      margin-top: 3rem;  
       box-shadow: 0 -4px 12px rgba(0, 69, 28, 0.8);  
       user-select: none;  
+      font-family: 'Poppins', sans-serif;  
     }  
   
     /* MOBILE RESPONSIVE */  
@@ -422,6 +515,7 @@
         display: none;  
         padding: 20px 0;  
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.45);  
+        z-index: 9999;  
       }  
       .nav-links.active {  
         display: flex;  
@@ -434,10 +528,8 @@
         transition: color 0.3s ease;  
       }  
       .nav-links a:hover,  
-      .nav-links a.active,  
-      .nav-links a:focus-visible {  
+      .nav-links a.active {  
         color: #51c36a;  
-        outline: none;  
       }  
       .menu {  
         display: block;  
@@ -495,44 +587,44 @@
 <body>  
   
   <!-- NAV -->  
-  <nav role="navigation" aria-label="Primary navigation">  
-    <a href="#home" class="logo" aria-label="Seedlings Propagators Ltd logo" tabindex="0">  
-      <img src="images/logo2.png" alt="Seedlings Propagators Logo" />  
-      <h2>SEEDLINGS</h2>  
-    </a>  
+  <nav>  
+    <div class="logo" aria-label="Naivagreen Propagator Ltd logo" tabindex="0" role="img">  
+      <img src="images/logo2.png" alt="Naivagreen Logo" />  
+      <h2>NAIVAGREEN</h2>  
+    </div>  
   
-    <button class="menu" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key==='Enter') toggleMenu()">☰</button>  
+    <div class="menu" aria-label="Toggle navigation menu" role="button" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key==='Enter') toggleMenu()">☰</div>  
   
     <div id="links" class="nav-links">  
-      <a href="#home" class="active" tabindex="0">Home</a>  
-      <a href="#about" tabindex="0">About</a>  
-      <a href="#video" tabindex="0">Video</a>  
-      <a href="#vision" tabindex="0">Vision</a>  
-      <a href="#products" tabindex="0">Products</a>  
-      <a href="#why" tabindex="0">Why Us</a>  
-      <a href="#contact" tabindex="0">Contact</a>  
+      <a href="#home" class="active">Home</a>  
+      <a href="#about">About</a>  
+      <a href="#video">Video</a>  
+      <a href="#vision">Vision</a>  
+      <a href="#products">Products</a>  
+      <a href="#why">Why Us</a>  
+      <a href="#contact">Contact</a>  
     </div>  
   </nav>  
   
   <!-- HERO -->  
-  <section id="home" class="hero" role="banner" aria-label="Welcome section with company tagline and order button">  
+  <section id="home" class="hero" role="banner">  
     <div class="hero-content">  
       <h1>Premium Seedlings in Kenya</h1>  
       <p>Healthy • Certified • High Yield</p>  
-      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Order seedlings via WhatsApp">Order Now</a>  
+      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener" aria-label="Order seedlings via WhatsApp">Order Now</a>  
     </div>  
   </section>  
   
   <!-- ABOUT -->  
   <section id="about" class="section" role="region" aria-labelledby="about-heading">  
     <h2 id="about-heading">About Us</h2>  
-    <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits. Our dedicated team supports sustainable farming practices and delivers tailored solutions for every customer.</p>  
+    <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>  
   </section>  
   
   <!-- VIDEO -->  
   <section id="video" class="section" role="region" aria-labelledby="video-heading">  
     <h2 id="video-heading">Our Farm in Action</h2>  
-    <video controls preload="metadata" aria-label="Video showing Seedlings Propagators farm in action" tabindex="0" muted playsinline>  
+    <video controls preload="metadata" aria-label="Video showing Naivagreen farm in action">  
       <source src="images/naivagreen-video.mp4" type="video/mp4" />  
       Sorry, your browser doesn't support embedded videos.  
     </video>  
@@ -542,17 +634,17 @@
   <section id="vision" class="section dark" role="region" aria-labelledby="vision-heading">  
     <h2 id="vision-heading">Vision & Mission</h2>  
     <div class="cards">  
-      <article class="card" aria-label="Vision of Seedlings Propagators" tabindex="0">  
+      <article class="card" aria-label="Vision of Naivagreen" tabindex="0">  
         <div class="card-content">  
           <h3>🌍 Vision</h3>  
-          <p>To lead Africa in quality seedling production, innovation, and sustainability.</p>  
+          <p>To lead Africa in quality seedling production.</p>  
         </div>  
       </article>  
   
-      <article class="card" aria-label="Mission of Seedlings Propagators" tabindex="0">  
+      <article class="card" aria-label="Mission of Naivagreen" tabindex="0">  
         <div class="card-content">  
           <h3>🚀 Mission</h3>  
-          <p>Deliver high-quality seedlings and empower farmers through knowledge, technology, and service excellence.</p>  
+          <p>Deliver high-quality seedlings and empower farmers.</p>  
         </div>  
       </article>  
     </div>  
@@ -561,28 +653,23 @@
   <!-- PRODUCTS -->  
   <section id="products" class="section" role="region" aria-labelledby="products-heading">  
     <h2 id="products-heading">Our Seedlings</h2>  
-    <div class="cards" role="list">  
-  
-      <article class="card" tabindex="0" aria-label="Spinach seedlings" role="listitem">  
-        <img src="images/spinach.jpg" alt="Fresh spinach seedlings" loading="lazy" />  
+    <div class="cards">  
+      <div class="card" tabindex="0" aria-label="Spinach seedlings">  
+        <img src="images/spinach.jpg" alt="Fresh spinach seedlings" />  
         <div class="card-content">Spinach</div>  
-      </article>  
-  
-      <article class="card" tabindex="0" aria-label="Tomato seedlings" role="listitem">  
-        <img src="images/tomato.jpg" alt="Healthy tomato seedlings" loading="lazy" />  
+      </div>  
+      <div class="card" tabindex="0" aria-label="Tomato seedlings">  
+        <img src="images/tomato.jpg" alt="Healthy tomato seedlings" />  
         <div class="card-content">Tomato</div>  
-      </article>  
-  
-      <article class="card" tabindex="0" aria-label="Capsicum seedlings" role="listitem">  
-        <img src="images/capsicum.jpg" alt="Capsicum seedlings ready for sale" loading="lazy" />  
+      </div>  
+      <div class="card" tabindex="0" aria-label="Capsicum seedlings">  
+        <img src="images/capsicum.jpg" alt="Capsicum seedlings ready for sale" />  
         <div class="card-content">Capsicum</div>  
-      </article>  
-  
-      <article class="card" tabindex="0" aria-label="Basil seedlings" role="listitem">  
-        <img src="images/basil-aroma.jpg" alt="Aromatic basil seedlings" loading="lazy" />  
+      </div>  
+      <div class="card" tabindex="0" aria-label="Basil seedlings">  
+        <img src="images/basil-aroma.jpg" alt="Aromatic basil seedlings" />  
         <div class="card-content">Basil</div>  
-      </article>  
-  
+      </div>  
     </div>  
   </section>  
   
@@ -601,46 +688,11 @@
   <section id="contact" class="section" role="region" aria-labelledby="contact-heading">  
     <h2 id="contact-heading">Contact & Order</h2>  
   
-    <form novalidate aria-label="Order form" id="orderForm">  
-      <input  
-        type="text"  
-        placeholder="Your Name"  
-        name="name"  
-        required  
-        aria-required="true"  
-        autocomplete="name"  
-        minlength="2"  
-        maxlength="50"  
-      />  
-      <input  
-        type="tel"  
-        placeholder="Phone Number"  
-        name="phone"  
-        required  
-        aria-required="true"  
-        pattern="^\+?\d{7,15}$"  
-        autocomplete="tel"  
-        aria-describedby="phoneHelp"  
-        maxlength="20"  
-      />  
-      <small id="phoneHelp" style="color:#144621; font-weight:600; display:block; margin-bottom:15px; font-size:0.85rem;">  
-        Format example: +254712345678  
-      </small>  
-      <input  
-        type="text"  
-        placeholder="Seedling Type"  
-        name="seedling"  
-        autocomplete="off"  
-        maxlength="50"  
-      />  
-      <input  
-        type="number"  
-        placeholder="Quantity"  
-        name="quantity"  
-        min="1"  
-        max="10000"  
-        autocomplete="off"  
-      />  
+    <form novalidate aria-label="Order form">  
+      <input type="text" placeholder="Your Name" name="name" required aria-required="true" />  
+      <input type="tel" placeholder="Phone Number" name="phone" required aria-required="true" />  
+      <input type="text" placeholder="Seedling Type" name="seedling" />  
+      <input type="number" placeholder="Quantity" name="quantity" min="1" />  
       <button type="submit" aria-label="Submit your order">Submit Order</button>  
     </form>  
   
@@ -655,7 +707,7 @@
   </section>  
   
   <footer>  
-    © 2026 Seedlings Propagators Ltd  
+    © 2026 Naivagreen Propagator Ltd  
   </footer>  
   
   <!-- WHATSAPP -->  
@@ -663,12 +715,12 @@
     href="https://wa.me/254729526873"  
     class="whatsapp"  
     target="_blank"  
-    rel="noopener noreferrer"  
+    rel="noopener"  
     aria-label="Chat with us on WhatsApp"  
-  >💬</a>  
+    >💬</a  
+  >  
   
   <script>  
-    // Toggle mobile navigation menu  
     function toggleMenu() {  
       const navLinks = document.getElementById('links');  
       navLinks.classList.toggle('active');  
@@ -688,7 +740,7 @@
   
       sections.forEach(current => {  
         const sectionHeight = current.offsetHeight;  
-        const sectionTop = current.offsetTop - 90; // adjust offset for fixed nav  
+        const sectionTop = current.offsetTop - 80;  
         const sectionId = current.getAttribute('id');  
   
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {  
@@ -702,7 +754,7 @@
       });  
     });  
   
-    // Close menu on link click for mobile  
+    // Close menu on link click (mobile)  
     navLinks.forEach(link => {  
       link.addEventListener('click', () => {  
         const navLinksContainer = document.getElementById('links');  
@@ -712,46 +764,6 @@
         }  
       });  
     });  
-  
-    // Form submission handler with validation and accessibility  
-    const form = document.getElementById('orderForm');  
-    form.addEventListener('submit', (e) => {  
-      e.preventDefault();  
-  
-      const name = form.name.value.trim();  
-      const phone = form.phone.value.trim();  
-      const seedling = form.seedling.value.trim();  
-      const quantity = form.quantity.value.trim();  
-  
-      // Basic validation  
-      if (name.length < 2) {  
-        alert('Please enter a valid name (at least 2 characters).');  
-        form.name.focus();  
-        return;  
-      }  
-      const phonePattern = /^\+?\d{7,15}$/;  
-      if (!phonePattern.test(phone)) {  
-        alert('Please enter a valid phone number with country code, e.g., +254712345678.');  
-        form.phone.focus();  
-        return;  
-      }  
-      if (quantity !== '' && (!Number.isInteger(Number(quantity)) || Number(quantity) < 1)) {  
-        alert('Please enter a valid quantity (positive number).');  
-        form.quantity.focus();  
-        return;  
-      }  
-  
-      // Compose order summary for demonstration (replace with real submission code)  
-      let orderSummary = `Order Details:\nName: ${name}\nPhone: ${phone}`;  
-      if (seedling) orderSummary += `\nSeedling Type: ${seedling}`;  
-      if (quantity) orderSummary += `\nQuantity: ${quantity}`;  
-  
-      alert(`Thank you for your order!\n\n${orderSummary}`);  
-  
-      // Reset form after submission  
-      form.reset();  
-    });  
   </script>  
-  
 </body>  
   </html>
