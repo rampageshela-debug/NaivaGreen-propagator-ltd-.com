@@ -3,7 +3,7 @@
 <head>  
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1" />  
-  <title>Naivagreen Propagator Ltd</title>  
+  <title>Seedlings Propagators Ltd</title>  
   
   <!-- Google Fonts -->  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />  
@@ -24,6 +24,10 @@
     body {  
       line-height: 1.6;  
       font-size: 1rem;  
+      min-height: 100vh;  
+      display: flex;  
+      flex-direction: column;  
+      background-color: #e9f4ee;  
     }  
   
     /* NAVIGATION */  
@@ -50,6 +54,7 @@
       display: flex;  
       align-items: center;  
       gap: 12px;  
+      cursor: pointer;  
     }  
     .logo img {  
       height: 50px;  
@@ -57,7 +62,9 @@
       object-fit: contain;  
       transition: transform 0.3s ease;  
     }  
-    .logo img:hover {  
+    .logo img:hover,  
+    .logo:focus {  
+      outline: none;  
       transform: scale(1.1);  
     }  
     .logo h2 {  
@@ -66,6 +73,7 @@
       color: #bbe6b4;  
       letter-spacing: 2px;  
       text-shadow: 0 1px 3px #004d25;  
+      user-select: none;  
     }  
   
     /* Nav links container */  
@@ -84,6 +92,7 @@
       letter-spacing: 1.5px;  
       padding: 6px;  
       transition: color 0.3s ease;  
+      outline-offset: 3px;  
     }  
     .nav-links a::after {  
       content: '';  
@@ -97,10 +106,13 @@
       bottom: 0;  
       left: 0;  
     }  
-    .nav-links a:hover {  
+    .nav-links a:hover,  
+    .nav-links a:focus-visible {  
       color: #51c36a;  
+      outline: none;  
     }  
-    .nav-links a:hover::after {  
+    .nav-links a:hover::after,  
+    .nav-links a:focus-visible::after {  
       width: 100%;  
     }  
     /* Active nav link highlight based on #hash */  
@@ -119,8 +131,10 @@
       user-select: none;  
       transition: color 0.3s ease;  
     }  
-    .menu:hover {  
+    .menu:hover,  
+    .menu:focus {  
       color: #51c36a;  
+      outline: none;  
     }  
   
     /* HERO Section */  
@@ -139,6 +153,7 @@
       text-align: center;  
       padding: 0 20px;  
       animation: fadeInUp 1.5s ease forwards;  
+      margin-top: 68px; /* nav height + some gap */  
     }  
   
     .hero-content {  
@@ -150,6 +165,7 @@
       transform-style: preserve-3d;  
       perspective: 1000px;  
       animation: float 6s ease-in-out infinite;  
+      user-select: none;  
     }  
     .hero h1 {  
       font-size: 3rem;  
@@ -175,10 +191,13 @@
       text-decoration: none;  
       transition: background 0.4s ease;  
       box-shadow: 0 6px 15px #4caf50aa;  
+      user-select: none;  
     }  
-    .btn:hover {  
+    .btn:hover,  
+    .btn:focus {  
       background: #3c8c3b;  
       box-shadow: 0 8px 20px #2f6c2acc;  
+      outline: none;  
     }  
   
     /* SECTIONS */  
@@ -213,9 +232,13 @@
       box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);  
       margin-top: 1.5rem;  
       transition: transform 0.4s ease;  
+      cursor: pointer;  
+      outline-offset: 3px;  
     }  
-    video:hover {  
+    video:hover,  
+    video:focus {  
       transform: scale(1.03);  
+      outline: none;  
     }  
   
     /* CARDS */  
@@ -232,12 +255,15 @@
       overflow: hidden;  
       cursor: pointer;  
       transition: background 0.3s ease, transform 0.3s ease;  
+      outline-offset: 3px;  
     }  
-    .card:hover {  
+    .card:hover,  
+    .card:focus {  
       background: #51c36a;  
       transform: translateY(-8px);  
       box-shadow: 0 12px 30px rgb(0 77 35 / 0.5);  
       color: #fff;  
+      outline: none;  
     }  
     .card img {  
       width: 100%;  
@@ -245,8 +271,10 @@
       object-fit: cover;  
       border-bottom: 2.5px solid #0f7a4d;  
       transition: filter 0.3s ease;  
+      user-select: none;  
     }  
-    .card:hover img {  
+    .card:hover img,  
+    .card:focus img {  
       filter: brightness(0.7);  
     }  
     .card-content {  
@@ -257,7 +285,8 @@
       user-select: none;  
       transition: color 0.3s ease;  
     }  
-    .card:hover .card-content {  
+    .card:hover .card-content,  
+    .card:focus .card-content {  
       color: #e9f4ee;  
     }  
   
@@ -299,6 +328,7 @@
       font-size: 1rem;  
       color: #144621;  
       transition: border-color 0.3s ease;  
+      user-select: text;  
     }  
     form input:focus {  
       outline: none;  
@@ -315,9 +345,11 @@
       letter-spacing: 1.2px;  
       transition: background 0.4s ease;  
     }  
-    form button:hover {  
+    form button:hover,  
+    form button:focus {  
       background: #3c8c3b;  
       box-shadow: 0 8px 25px #2f6c2acc;  
+      outline: none;  
     }  
   
     /* MAP */  
@@ -332,6 +364,7 @@
       display: block;  
       margin-left: auto;  
       margin-right: auto;  
+      user-select: none;  
     }  
   
     /* WHATSAPP BUTTON */  
@@ -348,10 +381,16 @@
       text-decoration: none;  
       transition: background 0.3s ease, box-shadow 0.3s ease;  
       z-index: 9999;  
+      user-select: none;  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
     }  
-    .whatsapp:hover {  
+    .whatsapp:hover,  
+    .whatsapp:focus {  
       background: #1ebe54;  
       box-shadow: 0 15px 30px #1ebe54dd;  
+      outline: none;  
     }  
   
     /* FOOTER */  
@@ -363,8 +402,9 @@
       font-weight: 600;  
       font-size: 0.9rem;  
       letter-spacing: 1.1px;  
-      margin-top: 3rem;  
+      margin-top: auto;  
       box-shadow: 0 -4px 12px rgba(0, 69, 28, 0.8);  
+      user-select: none;  
     }  
   
     /* MOBILE RESPONSIVE */  
@@ -394,8 +434,10 @@
         transition: color 0.3s ease;  
       }  
       .nav-links a:hover,  
-      .nav-links a.active {  
+      .nav-links a.active,  
+      .nav-links a:focus-visible {  
         color: #51c36a;  
+        outline: none;  
       }  
       .menu {  
         display: block;  
@@ -453,44 +495,44 @@
 <body>  
   
   <!-- NAV -->  
-  <nav>  
-    <div class="logo" aria-label="Naivagreen Propagator Ltd logo">  
-      <img src="images/logo2.png" alt="Naivagreen Logo" />  
-      <h2>NAIVAGREEN</h2>  
-    </div>  
+  <nav role="navigation" aria-label="Primary navigation">  
+    <a href="#home" class="logo" aria-label="Seedlings Propagators Ltd logo" tabindex="0">  
+      <img src="images/logo2.png" alt="Seedlings Propagators Logo" />  
+      <h2>SEEDLINGS</h2>  
+    </a>  
   
-    <div class="menu" aria-label="Toggle navigation menu" role="button" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key==='Enter') toggleMenu()">☰</div>  
+    <button class="menu" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key==='Enter') toggleMenu()">☰</button>  
   
     <div id="links" class="nav-links">  
-      <a href="#home" class="active">Home</a>  
-      <a href="#about">About</a>  
-      <a href="#video">Video</a>  
-      <a href="#vision">Vision</a>  
-      <a href="#products">Products</a>  
-      <a href="#why">Why Us</a>  
-      <a href="#contact">Contact</a>  
+      <a href="#home" class="active" tabindex="0">Home</a>  
+      <a href="#about" tabindex="0">About</a>  
+      <a href="#video" tabindex="0">Video</a>  
+      <a href="#vision" tabindex="0">Vision</a>  
+      <a href="#products" tabindex="0">Products</a>  
+      <a href="#why" tabindex="0">Why Us</a>  
+      <a href="#contact" tabindex="0">Contact</a>  
     </div>  
   </nav>  
   
   <!-- HERO -->  
-  <section id="home" class="hero" role="banner">  
+  <section id="home" class="hero" role="banner" aria-label="Welcome section with company tagline and order button">  
     <div class="hero-content">  
       <h1>Premium Seedlings in Kenya</h1>  
       <p>Healthy • Certified • High Yield</p>  
-      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener" aria-label="Order seedlings via WhatsApp">Order Now</a>  
+      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Order seedlings via WhatsApp">Order Now</a>  
     </div>  
   </section>  
   
   <!-- ABOUT -->  
   <section id="about" class="section" role="region" aria-labelledby="about-heading">  
     <h2 id="about-heading">About Us</h2>  
-    <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>  
+    <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits. Our dedicated team supports sustainable farming practices and delivers tailored solutions for every customer.</p>  
   </section>  
   
   <!-- VIDEO -->  
   <section id="video" class="section" role="region" aria-labelledby="video-heading">  
     <h2 id="video-heading">Our Farm in Action</h2>  
-    <video controls preload="metadata" aria-label="Video showing Naivagreen farm in action">  
+    <video controls preload="metadata" aria-label="Video showing Seedlings Propagators farm in action" tabindex="0" muted playsinline>  
       <source src="images/naivagreen-video.mp4" type="video/mp4" />  
       Sorry, your browser doesn't support embedded videos.  
     </video>  
@@ -500,17 +542,17 @@
   <section id="vision" class="section dark" role="region" aria-labelledby="vision-heading">  
     <h2 id="vision-heading">Vision & Mission</h2>  
     <div class="cards">  
-      <article class="card" aria-label="Vision of Naivagreen">  
+      <article class="card" aria-label="Vision of Seedlings Propagators" tabindex="0">  
         <div class="card-content">  
           <h3>🌍 Vision</h3>  
-          <p>To lead Africa in quality seedling production.</p>  
+          <p>To lead Africa in quality seedling production, innovation, and sustainability.</p>  
         </div>  
       </article>  
   
-      <article class="card" aria-label="Mission of Naivagreen">  
+      <article class="card" aria-label="Mission of Seedlings Propagators" tabindex="0">  
         <div class="card-content">  
           <h3>🚀 Mission</h3>  
-          <p>Deliver high-quality seedlings and empower farmers.</p>  
+          <p>Deliver high-quality seedlings and empower farmers through knowledge, technology, and service excellence.</p>  
         </div>  
       </article>  
     </div>  
@@ -519,23 +561,28 @@
   <!-- PRODUCTS -->  
   <section id="products" class="section" role="region" aria-labelledby="products-heading">  
     <h2 id="products-heading">Our Seedlings</h2>  
-    <div class="cards">  
-      <div class="card" tabindex="0" aria-label="Spinach seedlings">  
-        <img src="images/spinach.jpg" alt="Fresh spinach seedlings" />  
+    <div class="cards" role="list">  
+  
+      <article class="card" tabindex="0" aria-label="Spinach seedlings" role="listitem">  
+        <img src="images/spinach.jpg" alt="Fresh spinach seedlings" loading="lazy" />  
         <div class="card-content">Spinach</div>  
-      </div>  
-      <div class="card" tabindex="0" aria-label="Tomato seedlings">  
-        <img src="images/tomato.jpg" alt="Healthy tomato seedlings" />  
+      </article>  
+  
+      <article class="card" tabindex="0" aria-label="Tomato seedlings" role="listitem">  
+        <img src="images/tomato.jpg" alt="Healthy tomato seedlings" loading="lazy" />  
         <div class="card-content">Tomato</div>  
-      </div>  
-      <div class="card" tabindex="0" aria-label="Capsicum seedlings">  
-        <img src="images/capsicum.jpg" alt="Capsicum seedlings ready for sale" />  
+      </article>  
+  
+      <article class="card" tabindex="0" aria-label="Capsicum seedlings" role="listitem">  
+        <img src="images/capsicum.jpg" alt="Capsicum seedlings ready for sale" loading="lazy" />  
         <div class="card-content">Capsicum</div>  
-      </div>  
-      <div class="card" tabindex="0" aria-label="Basil seedlings">  
-        <img src="images/basil-aroma.jpg" alt="Aromatic basil seedlings" />  
+      </article>  
+  
+      <article class="card" tabindex="0" aria-label="Basil seedlings" role="listitem">  
+        <img src="images/basil-aroma.jpg" alt="Aromatic basil seedlings" loading="lazy" />  
         <div class="card-content">Basil</div>  
-      </div>  
+      </article>  
+  
     </div>  
   </section>  
   
@@ -554,11 +601,46 @@
   <section id="contact" class="section" role="region" aria-labelledby="contact-heading">  
     <h2 id="contact-heading">Contact & Order</h2>  
   
-    <form novalidate aria-label="Order form">  
-      <input type="text" placeholder="Your Name" name="name" required aria-required="true" />  
-      <input type="tel" placeholder="Phone Number" name="phone" required aria-required="true" />  
-      <input type="text" placeholder="Seedling Type" name="seedling" />  
-      <input type="number" placeholder="Quantity" name="quantity" min="1" />  
+    <form novalidate aria-label="Order form" id="orderForm">  
+      <input  
+        type="text"  
+        placeholder="Your Name"  
+        name="name"  
+        required  
+        aria-required="true"  
+        autocomplete="name"  
+        minlength="2"  
+        maxlength="50"  
+      />  
+      <input  
+        type="tel"  
+        placeholder="Phone Number"  
+        name="phone"  
+        required  
+        aria-required="true"  
+        pattern="^\+?\d{7,15}$"  
+        autocomplete="tel"  
+        aria-describedby="phoneHelp"  
+        maxlength="20"  
+      />  
+      <small id="phoneHelp" style="color:#144621; font-weight:600; display:block; margin-bottom:15px; font-size:0.85rem;">  
+        Format example: +254712345678  
+      </small>  
+      <input  
+        type="text"  
+        placeholder="Seedling Type"  
+        name="seedling"  
+        autocomplete="off"  
+        maxlength="50"  
+      />  
+      <input  
+        type="number"  
+        placeholder="Quantity"  
+        name="quantity"  
+        min="1"  
+        max="10000"  
+        autocomplete="off"  
+      />  
       <button type="submit" aria-label="Submit your order">Submit Order</button>  
     </form>  
   
@@ -573,7 +655,7 @@
   </section>  
   
   <footer>  
-    © 2026 Naivagreen Propagator Ltd  
+    © 2026 Seedlings Propagators Ltd  
   </footer>  
   
   <!-- WHATSAPP -->  
@@ -581,12 +663,12 @@
     href="https://wa.me/254729526873"  
     class="whatsapp"  
     target="_blank"  
-    rel="noopener"  
+    rel="noopener noreferrer"  
     aria-label="Chat with us on WhatsApp"  
-    >💬</a  
-  >  
+  >💬</a>  
   
   <script>  
+    // Toggle mobile navigation menu  
     function toggleMenu() {  
       const navLinks = document.getElementById('links');  
       navLinks.classList.toggle('active');  
@@ -606,7 +688,7 @@
   
       sections.forEach(current => {  
         const sectionHeight = current.offsetHeight;  
-        const sectionTop = current.offsetTop - 80;  
+        const sectionTop = current.offsetTop - 90; // adjust offset for fixed nav  
         const sectionId = current.getAttribute('id');  
   
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {  
@@ -620,7 +702,7 @@
       });  
     });  
   
-    // Close menu on link click (mobile)  
+    // Close menu on link click for mobile  
     navLinks.forEach(link => {  
       link.addEventListener('click', () => {  
         const navLinksContainer = document.getElementById('links');  
@@ -631,7 +713,45 @@
       });  
     });  
   
-    // Optional: Smooth scroll polyfill for browsers that don't support scroll-behavior CSS  
+    // Form submission handler with validation and accessibility  
+    const form = document.getElementById('orderForm');  
+    form.addEventListener('submit', (e) => {  
+      e.preventDefault();  
+  
+      const name = form.name.value.trim();  
+      const phone = form.phone.value.trim();  
+      const seedling = form.seedling.value.trim();  
+      const quantity = form.quantity.value.trim();  
+  
+      // Basic validation  
+      if (name.length < 2) {  
+        alert('Please enter a valid name (at least 2 characters).');  
+        form.name.focus();  
+        return;  
+      }  
+      const phonePattern = /^\+?\d{7,15}$/;  
+      if (!phonePattern.test(phone)) {  
+        alert('Please enter a valid phone number with country code, e.g., +254712345678.');  
+        form.phone.focus();  
+        return;  
+      }  
+      if (quantity !== '' && (!Number.isInteger(Number(quantity)) || Number(quantity) < 1)) {  
+        alert('Please enter a valid quantity (positive number).');  
+        form.quantity.focus();  
+        return;  
+      }  
+  
+      // Compose order summary for demonstration (replace with real submission code)  
+      let orderSummary = `Order Details:\nName: ${name}\nPhone: ${phone}`;  
+      if (seedling) orderSummary += `\nSeedling Type: ${seedling}`;  
+      if (quantity) orderSummary += `\nQuantity: ${quantity}`;  
+  
+      alert(`Thank you for your order!\n\n${orderSummary}`);  
+  
+      // Reset form after submission  
+      form.reset();  
+    });  
   </script>  
+  
 </body>  
-</html>
+  </html>
