@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />  
   <title>NAIVAGREEN PROPAGATOR</title>  
   
-  <!-- Google Fonts: Poppins & Montserrat (for advanced modern look) -->  
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />  
+  <!-- Google Fonts -->  
+  <link  
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&family=Raleway:wght@400;600&display=swap"  
+    rel="stylesheet"  
+  />  
   
   <style>  
     /* Reset and base */  
@@ -15,18 +18,20 @@
       padding: 0;  
       box-sizing: border-box;  
       font-family: 'Poppins', sans-serif;  
+      -webkit-font-smoothing: antialiased;  
+      -moz-osx-font-smoothing: grayscale;  
     }  
     html {  
       scroll-behavior: smooth;  
       background: #e9f4ee;  
       color: #1e3932;  
+      font-size: 16px;  
     }  
     body {  
       line-height: 1.6;  
       font-size: 1rem;  
-      background: linear-gradient(135deg, #e9f4ee 0%, #d9efe3 100%);  
-      min-height: 100vh;  
-      position: relative;  
+      background: linear-gradient(135deg, #f0fbf5, #dff4e4);  
+      overflow-x: hidden;  
     }  
   
     /* NAVIGATION */  
@@ -39,10 +44,7 @@
       justify-content: space-between;  
       align-items: center;  
       padding: 12px 40px;  
-      box-shadow:  
-        0 0 12px #1eff87,  
-        0 0 24px #3afebd,  
-        0 0 40px #19a26f;  
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
       z-index: 10000;  
       transition: background 0.3s ease;  
     }  
@@ -51,113 +53,82 @@
       transition: background 0.3s ease;  
     }  
   
-    /* Logo container with glowing frame */  
+    /* Logo and heading - flex align, small gap */  
     .logo {  
-      position: relative;  
       display: flex;  
       align-items: center;  
-      gap: 16px;  
-      cursor: pointer;  
-      padding: 10px 20px;  
-      border-radius: 18px;  
-      background: #072617;  
+      gap: 18px;  
+      position: relative;  
+      /* advanced font: Montserrat bold with text shadow */  
+      font-family: 'Montserrat', sans-serif;  
+      cursor: default;  
+      /* Glow frame container */  
+      padding: 10px;  
+      border-radius: 16px;  
       box-shadow:  
-        0 0 6px #44c767,  
-        0 0 14px #59d378,  
-        0 0 28px #5fe289,  
-        0 0 40px #38d37c,  
-        inset 0 0 8px #81f4a2;  
+        0 0 8px #4ade80,  
+        0 0 20px #34d399,  
+        0 0 32px #22c55e,  
+        0 0 45px #16a34a;  
+      background: #0a4a32;  
+      user-select: none;  
       transition: box-shadow 0.4s ease;  
     }  
+    /* Glow on hover for logo container */  
     .logo:hover {  
       box-shadow:  
-        0 0 12px #4fff8e,  
-        0 0 24px #66f1af,  
-        0 0 40px #73fcbb,  
-        0 0 50px #52dc9c,  
-        inset 0 0 14px #a0ffc3;  
-    }  
-    /* Glowing frame around the logo image using pseudo-elements */  
-    .logo::before,  
-    .logo::after {  
-      content: "";  
-      position: absolute;  
-      border-radius: 20px;  
-      pointer-events: none;  
-      animation: glowPulse 3s infinite ease-in-out;  
-      z-index: 0;  
-    }  
-    .logo::before {  
-      top: -8px;  
-      left: -8px;  
-      right: -8px;  
-      bottom: -8px;  
-      border: 3.5px solid #4bf384;  
-      filter: blur(8px);  
-      opacity: 0.8;  
-      animation-delay: 0s;  
-    }  
-    .logo::after {  
-      top: -4px;  
-      left: -4px;  
-      right: -4px;  
-      bottom: -4px;  
-      border: 2px solid #00ff8c;  
-      filter: blur(3px);  
-      opacity: 0.6;  
-      animation-delay: 1.5s;  
-    }  
-    @keyframes glowPulse {  
-      0%, 100% {  
-        opacity: 0.8;  
-        box-shadow: 0 0 6px #00ff9d, 0 0 12px #00e36b;  
-      }  
-      50% {  
-        opacity: 1;  
-        box-shadow: 0 0 10px #24ffb4, 0 0 20px #27e98a;  
-      }  
+        0 0 12px #86efac,  
+        0 0 30px #4ade80,  
+        0 0 48px #22c55e,  
+        0 0 60px #16a34a;  
     }  
   
-    /* Logo image styles */  
+    /* Logo image with glowing inner shadow for depth */  
     .logo img {  
-      height: 54px;  
+      height: 56px;  
       aspect-ratio: 1/1;  
       object-fit: contain;  
-      border-radius: 50%;  
+      border-radius: 12px;  
       box-shadow:  
-        0 0 8px #56de9f,  
-        0 0 16px #3ed48a;  
-      transition: transform 0.4s ease, box-shadow 0.4s ease;  
-      z-index: 1;  
-      position: relative;  
-      background: #0a3b27;  
+        inset 0 0 12px #2d6a32,  
+        0 0 12px #34d399;  
+      transition: transform 0.3s ease;  
+      background: #ffffff20;  
     }  
     .logo img:hover {  
-      transform: scale(1.17) rotate(5deg);  
-      box-shadow:  
-        0 0 18px #78f7bb,  
-        0 0 36px #61e99f;  
+      transform: scale(1.12);  
+      filter: drop-shadow(0 0 6px #4ade80);  
     }  
   
-    /* Logo heading */  
     .logo h2 {  
-      font-family: 'Montserrat', sans-serif;  
-      font-weight: 800;  
+      font-weight: 700;  
       font-size: 1.9rem;  
       color: #bbe6b4;  
-      letter-spacing: 2.5px;  
-      text-shadow:  
-        0 0 5px #59df8a,  
-        0 2px 10px #0c4518;  
+      letter-spacing: 3px;  
+      text-shadow: 0 2px 6px #004d25;  
       user-select: none;  
-      z-index: 1;  
-      position: relative;  
+    }  
+  
+    /* Tagline under logo */  
+    .logo-tagline {  
+      position: absolute;  
+      left: calc(100% + 15px);  
+      top: 50%;  
+      transform: translateY(-50%);  
+      font-family: 'Raleway', sans-serif;  
+      font-weight: 600;  
+      font-size: 1rem;  
+      color: #a6d8a9;  
+      text-shadow: 0 1px 3px rgba(0, 77, 37, 0.5);  
+      user-select: none;  
+      max-width: 240px;  
     }  
   
     /* Nav links container */  
     .nav-links {  
       display: flex;  
       gap: 28px;  
+      font-family: 'Poppins', sans-serif;  
     }  
     /* Nav links style */  
     .nav-links a {  
@@ -170,7 +141,6 @@
       letter-spacing: 1.5px;  
       padding: 6px;  
       transition: color 0.3s ease;  
-      font-family: 'Poppins', sans-serif;  
       user-select: none;  
     }  
     .nav-links a::after {  
@@ -215,8 +185,8 @@
     .hero {  
       height: 100vh;  
       background: linear-gradient(  
-          rgba(10, 77, 46, 0.75),  
-          rgba(10, 77, 46, 0.75)  
+          rgba(10, 77, 46, 0.85),  
+          rgba(10, 77, 46, 0.85)  
         ),  
         url('images/greenhouse1.jpg') center/cover no-repeat;  
       display: flex;  
@@ -231,51 +201,58 @@
   
     .hero-content {  
       max-width: 750px;  
-      background: rgba(11, 60, 27, 0.85);  
-      padding: 50px 40px;  
+      background: rgba(11, 60, 27, 0.82);  
+      padding: 55px 50px;  
       border-radius: 20px;  
-      box-shadow: 0 12px 35px rgba(7, 38, 14, 0.85);  
+      box-shadow: 0 15px 40px rgba(7, 38, 14, 0.85);  
       transform-style: preserve-3d;  
-      perspective: 1000px;  
+      perspective: 1200px;  
       animation: float 6s ease-in-out infinite;  
-      font-family: 'Montserrat', sans-serif;  
+      font-family: 'Raleway', sans-serif;  
     }  
     .hero h1 {  
-      font-size: 3rem;  
-      font-weight: 900;  
-      margin-bottom: 15px;  
-      letter-spacing: 3px;  
-      color: #a5f3b8;  
-      text-shadow:  
-        2px 3px 8px #00401b,  
-        0 0 10px #6fad6b;  
+      font-size: 3.5rem;  
+      font-weight: 800;  
+      margin-bottom: 12px;  
+      letter-spacing: 2px;  
+      text-shadow: 3px 4px 8px #003314;  
+      line-height: 1.1;  
     }  
     .hero p {  
-      font-size: 1.5rem;  
+      font-size: 1.6rem;  
       font-weight: 700;  
       letter-spacing: 2.5px;  
-      color: #cdf4d0;  
-      text-shadow: 1px 2px 6px #003814;  
+      text-shadow: 1.5px 2.5px 6px #00270f;  
+      margin-bottom: 1rem;  
+    }  
+    .hero p.sub-caption {  
+      font-size: 1.1rem;  
+      font-weight: 500;  
+      margin-top: -6px;  
+      opacity: 0.8;  
+      font-style: italic;  
+      letter-spacing: 1.3px;  
     }  
     .btn {  
       display: inline-block;  
       margin-top: 30px;  
       background: #51c36a;  
       color: #fff;  
-      padding: 15px 50px;  
+      padding: 18px 48px;  
       border-radius: 50px;  
       font-weight: 700;  
-      font-family: 'Montserrat', sans-serif;  
+      font-size: 1.05rem;  
       text-decoration: none;  
-      letter-spacing: 1.6px;  
       transition: background 0.4s ease;  
-      box-shadow: 0 6px 15px #4caf50aa;  
+      box-shadow: 0 8px 20px #4caf50cc;  
+      letter-spacing: 1.8px;  
       user-select: none;  
+      font-family: 'Montserrat', sans-serif;  
     }  
     .btn:hover,  
     .btn:focus {  
       background: #3c8c3b;  
-      box-shadow: 0 8px 20px #2f6c2acc;  
+      box-shadow: 0 10px 25px #2f6c2acc;  
       outline: none;  
     }  
   
@@ -285,91 +262,98 @@
       text-align: center;  
       max-width: 1200px;  
       margin: 0 auto;  
-      font-family: 'Poppins', sans-serif;  
     }  
     .section h2 {  
       font-weight: 700;  
-      font-size: 2.7rem;  
+      font-size: 2.9rem;  
       margin-bottom: 1rem;  
       color: #0a4a32;  
       letter-spacing: 1.3px;  
-      text-shadow: 0 1.5px 2px rgba(0, 60, 20, 0.2);  
+      text-shadow: 0 1.75px 2.5px rgba(0, 60, 20, 0.25);  
       font-family: 'Montserrat', sans-serif;  
     }  
     .section p {  
-      max-width: 700px;  
+      max-width: 720px;  
       margin: 0 auto;  
-      line-height: 1.65;  
-      font-size: 1.15rem;  
+      line-height: 1.75;  
+      font-size: 1.2rem;  
       color: #144621;  
       font-weight: 500;  
-      font-family: 'Poppins', sans-serif;  
+      font-family: 'Raleway', sans-serif;  
+      letter-spacing: 0.4px;  
     }  
   
     /* VIDEO */  
     video {  
       width: 100%;  
-      max-width: 800px;  
-      border-radius: 15px;  
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);  
-      margin-top: 1.5rem;  
+      max-width: 840px;  
+      border-radius: 18px;  
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.28);  
+      margin-top: 1.8rem;  
       transition: transform 0.4s ease;  
-      border: 4px solid #51c36a;  
-      background: #000;  
+      border: 3px solid #4ade80;  
     }  
     video:hover,  
     video:focus {  
-      transform: scale(1.03);  
+      transform: scale(1.04);  
       outline: none;  
     }  
   
     /* CARDS */  
     .cards {  
       display: grid;  
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  
-      gap: 24px;  
-      margin-top: 2rem;  
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
+      gap: 28px;  
+      margin-top: 2.8rem;  
     }  
     .card {  
       background: #e4f1e7;  
-      border-radius: 15px;  
-      box-shadow: 0 8px 20px rgb(0 77 35 / 0.15);  
+      border-radius: 20px;  
+      box-shadow: 0 12px 28px rgb(0 77 35 / 0.18);  
       overflow: hidden;  
       cursor: pointer;  
       transition: background 0.3s ease, transform 0.3s ease;  
       user-select: none;  
-      outline-offset: 2px;  
-      outline-color: transparent;  
+      display: flex;  
+      flex-direction: column;  
+      /* subtle 3D depth */  
+      will-change: transform;  
     }  
-    .card:focus-visible {  
-      outline: 3px solid #51c36a;  
-      outline-offset: 4px;  
-    }  
-    .card:hover {  
+    .card:hover,  
+    .card:focus {  
       background: #51c36a;  
-      transform: translateY(-8px);  
-      box-shadow: 0 12px 30px rgb(0 77 35 / 0.5);  
+      transform: translateY(-10px);  
+      box-shadow: 0 16px 36px rgb(0 77 35 / 0.6);  
       color: #fff;  
-    }  
-    .card:hover img {  
-      filter: brightness(0.7);  
+      outline: none;  
     }  
     .card img {  
       width: 100%;  
-      height: 180px;  
+      height: 200px;  
       object-fit: cover;  
-      border-bottom: 2.5px solid #0f7a4d;  
-      transition: filter 0.3s ease;  
+      border-bottom: 3px solid #0f7a4d;  
+      transition: filter 0.35s ease;  
+      border-radius: 20px 20px 0 0;  
+      flex-shrink: 0;  
+    }  
+    .card:hover img,  
+    .card:focus img {  
+      filter: brightness(0.7);  
     }  
     .card-content {  
-      padding: 20px 15px;  
+      padding: 22px 18px;  
       font-weight: 600;  
-      font-size: 1.15rem;  
+      font-size: 1.25rem;  
       color: #0a4a32;  
       transition: color 0.3s ease;  
+      flex-grow: 1;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
       font-family: 'Montserrat', sans-serif;  
     }  
-    .card:hover .card-content {  
+    .card:hover .card-content,  
+    .card:focus .card-content {  
       color: #e9f4ee;  
     }  
   
@@ -377,21 +361,18 @@
     .dark {  
       background: #0a4a32;  
       color: #bbe6b4;  
-      font-family: 'Poppins', sans-serif;  
     }  
     .dark .card {  
       background: #1a5c3d;  
-      box-shadow: 0 5px 20px rgba(11, 89, 37, 0.9);  
-      border: 1.5px solid #51c36a;  
+      box-shadow: 0 7px 22px rgba(11, 89, 37, 0.9);  
+      border: 2px solid #51c36a;  
     }  
     .dark .card-content {  
       color: #bbe6b4;  
-      font-weight: 600;  
     }  
     .dark h2 {  
       color: #bbf7bd;  
-      text-shadow: 0 2px 5px #16612c;  
-      font-family: 'Montserrat', sans-serif;  
+      text-shadow: 0 2.3px 5.5px #16612c;  
     }  
     .dark p {  
       color: #d0f2bc;  
@@ -402,64 +383,60 @@
       max-width: 480px;  
       margin: 0 auto;  
       text-align: left;  
-      font-family: 'Poppins', sans-serif;  
-      user-select: none;  
+      font-family: 'Raleway', sans-serif;  
     }  
     form input,  
     form button {  
       width: 100%;  
-      padding: 14px 18px;  
-      margin-bottom: 15px;  
-      border-radius: 10px;  
-      border: 2.5px solid #51c36a;  
+      padding: 16px 20px;  
+      margin-bottom: 18px;  
+      border-radius: 12px;  
+      border: 2.8px solid #51c36a;  
       font-weight: 600;  
-      font-size: 1rem;  
+      font-size: 1.1rem;  
       color: #144621;  
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;  
+      transition: border-color 0.3s ease;  
+      box-shadow: inset 0 0 10px #a2d9a8;  
       font-family: 'Poppins', sans-serif;  
     }  
-    form input:focus,  
-    form button:focus {  
+    form input:focus {  
       outline: none;  
       border-color: #3c8c3b;  
       background: #e9f9e9;  
-      box-shadow: 0 0 8px #51c36aaa;  
+      box-shadow: 0 0 8px #4ade80;  
     }  
     form button {  
       border: none;  
       background: #51c36a;  
       color: #fff;  
       cursor: pointer;  
-      box-shadow: 0 6px 20px #4caf50aa;  
+      box-shadow: 0 7px 22px #4caf50bb;  
       font-weight: 700;  
-      letter-spacing: 1.2px;  
-      transition: background 0.4s ease, box-shadow 0.4s ease;  
+      letter-spacing: 1.4px;  
+      transition: background 0.4s ease;  
+      font-family: 'Montserrat', sans-serif;  
+      font-size: 1.15rem;  
+      user-select: none;  
     }  
-    form button:hover {  
+    form button:hover,  
+    form button:focus {  
       background: #3c8c3b;  
-      box-shadow: 0 8px 25px #2f6c2acc;  
+      box-shadow: 0 10px 28px #2f6c2acc;  
+      outline: none;  
     }  
   
     /* MAP */  
     iframe {  
-      margin-top: 25px;  
-      border-radius: 20px;  
-      border: 3px solid #51c36a;  
-      box-shadow: 0 8px 30px rgb(0 77 35 / 0.3);  
-      min-height: 300px;  
+      margin-top: 30px;  
+      border-radius: 24px;  
+      border: 3.5px solid #51c36a;  
+      box-shadow: 0 10px 36px rgb(0 77 35 / 0.35);  
+      min-height: 340px;  
       width: 100%;  
-      max-width: 600px;  
+      max-width: 640px;  
       display: block;  
       margin-left: auto;  
       margin-right: auto;  
-      transition: box-shadow 0.3s ease;  
-    }  
-    iframe:hover,  
-    iframe:focus {  
-      box-shadow:  
-        0 0 15px #51c36a,  
-        0 0 30px #3cc86d;  
-      outline: none;  
     }  
   
     /* WHATSAPP BUTTON */  
@@ -472,32 +449,36 @@
       padding: 20px 22px;  
       border-radius: 50%;  
       font-size: 30px;  
-      box-shadow: 0 10px 20px #25d366aa;  
+      box-shadow: 0 12px 24px #25d366bb;  
       text-decoration: none;  
       transition: background 0.3s ease, box-shadow 0.3s ease;  
       z-index: 9999;  
       user-select: none;  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
+      line-height: 1;  
     }  
     .whatsapp:hover,  
     .whatsapp:focus {  
       background: #1ebe54;  
-      box-shadow: 0 15px 30px #1ebe54dd;  
+      box-shadow: 0 15px 38px #1ebe54dd;  
       outline: none;  
     }  
   
     /* FOOTER */  
     footer {  
       text-align: center;  
-      padding: 24px 15px;  
+      padding: 28px 20px;  
       background: #064022;  
       color: #bbe6b4;  
       font-weight: 600;  
-      font-size: 0.9rem;  
-      letter-spacing: 1.1px;  
-      margin-top: 3rem;  
-      box-shadow: 0 -4px 12px rgba(0, 69, 28, 0.8);  
+      font-size: 1rem;  
+      letter-spacing: 1.2px;  
+      margin-top: 3.3rem;  
+      box-shadow: 0 -5px 15px rgba(0, 69, 28, 0.9);  
+      font-family: 'Montserrat', sans-serif;  
       user-select: none;  
-      font-family: 'Poppins', sans-serif;  
     }  
   
     /* MOBILE RESPONSIVE */  
@@ -514,8 +495,8 @@
         flex-direction: column;  
         display: none;  
         padding: 20px 0;  
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.45);  
-        z-index: 9999;  
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);  
+        z-index: 10005;  
       }  
       .nav-links.active {  
         display: flex;  
@@ -523,9 +504,10 @@
       }  
       .nav-links a {  
         margin: 14px 0;  
-        font-size: 1.2rem;  
+        font-size: 1.25rem;  
         color: #bbe6b4;  
         transition: color 0.3s ease;  
+        user-select: none;  
       }  
       .nav-links a:hover,  
       .nav-links a.active {  
@@ -534,15 +516,20 @@
       .menu {  
         display: block;  
       }  
+      /* Adjust logo tagline to not cause overflow on small screens */  
+      .logo-tagline {  
+        display: none;  
+      }  
       .hero h1 {  
-        font-size: 2.1rem;  
+        font-size: 2.2rem;  
+        line-height: 1.15;  
       }  
       .hero p {  
-        font-size: 1.1rem;  
+        font-size: 1.15rem;  
       }  
       .hero-content {  
-        padding: 30px 25px;  
-        border-radius: 12px;  
+        padding: 32px 25px;  
+        border-radius: 14px;  
       }  
       form {  
         max-width: 100%;  
@@ -551,13 +538,16 @@
       iframe {  
         max-width: 100%;  
       }  
+      .card img {  
+        height: 160px;  
+      }  
     }  
   
     /* ANIMATIONS */  
     @keyframes fadeInUp {  
       0% {  
         opacity: 0;  
-        transform: translateY(20px);  
+        transform: translateY(24px);  
       }  
       100% {  
         opacity: 1;  
@@ -565,17 +555,18 @@
       }  
     }  
     @keyframes float {  
-      0%, 100% {  
+      0%,  
+      100% {  
         transform: translateY(0px);  
       }  
       50% {  
-        transform: translateY(-12px);  
+        transform: translateY(-14px);  
       }  
     }  
     @keyframes fadeInMenu {  
       from {  
         opacity: 0;  
-        transform: translateY(-10px);  
+        transform: translateY(-12px);  
       }  
       to {  
         opacity: 1;  
@@ -585,15 +576,27 @@
   </style>  
 </head>  
 <body>  
-  
   <!-- NAV -->  
   <nav>  
-    <div class="logo" aria-label="Naivagreen Propagator Ltd logo" tabindex="0" role="img">  
-      <img src="images/logo2.png" alt="Naivagreen Logo" />  
+    <div class="logo" aria-label="NAIVAGREEN Propagator logo container" role="img" tabindex="0">  
+      <img src="images/logo2.png" alt="NAIVAGREEN Logo" />  
       <h2>NAIVAGREEN</h2>  
+      <div class="logo-tagline" aria-hidden="true">  
+        Cultivating Growth, Empowering Farmers  
+      </div>  
     </div>  
   
-    <div class="menu" aria-label="Toggle navigation menu" role="button" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key==='Enter') toggleMenu()">☰</div>  
+    <div  
+      class="menu"  
+      aria-label="Toggle navigation menu"  
+      role="button"  
+      tabindex="0"  
+      aria-expanded="false"  
+      onclick="toggleMenu()"  
+      onkeypress="if(event.key==='Enter') toggleMenu()"  
+    >  
+      ☰  
+    </div>  
   
     <div id="links" class="nav-links">  
       <a href="#home" class="active">Home</a>  
@@ -607,24 +610,36 @@
   </nav>  
   
   <!-- HERO -->  
-  <section id="home" class="hero" role="banner">  
+  <section id="home" class="hero" role="banner" aria-label="Welcome to NAIVAGREEN Propagator">  
     <div class="hero-content">  
       <h1>Premium Seedlings in Kenya</h1>  
       <p>Healthy • Certified • High Yield</p>  
-      <a href="https://wa.me/254729526873" class="btn" target="_blank" rel="noopener" aria-label="Order seedlings via WhatsApp">Order Now</a>  
+      <p class="sub-caption">Providing farmers with quality seedlings that transform farms and livelihoods.</p>  
+      <a  
+        href="https://wa.me/254729526873"  
+        class="btn"  
+        target="_blank"  
+        rel="noopener"  
+        aria-label="Order seedlings now via WhatsApp"  
+        >Order Now</a  
+      >  
     </div>  
   </section>  
   
   <!-- ABOUT -->  
   <section id="about" class="section" role="region" aria-labelledby="about-heading">  
     <h2 id="about-heading">About Us</h2>  
-    <p>We provide strong, disease-free seedlings to help farmers maximize yields and profits.</p>  
+    <p>  
+      At NAIVAGREEN Propagator Ltd, we are committed to providing strong, disease-free seedlings that help farmers  
+      maximize their yields and increase profits sustainably. With modern propagation techniques and expert care,  
+      our seedlings are trusted throughout Kenya.  
+    </p>  
   </section>  
   
   <!-- VIDEO -->  
   <section id="video" class="section" role="region" aria-labelledby="video-heading">  
     <h2 id="video-heading">Our Farm in Action</h2>  
-    <video controls preload="metadata" aria-label="Video showing Naivagreen farm in action">  
+    <video controls preload="metadata" aria-label="Video showing NAIVAGREEN farm in action" tabindex="0">  
       <source src="images/naivagreen-video.mp4" type="video/mp4" />  
       Sorry, your browser doesn't support embedded videos.  
     </video>  
@@ -634,17 +649,17 @@
   <section id="vision" class="section dark" role="region" aria-labelledby="vision-heading">  
     <h2 id="vision-heading">Vision & Mission</h2>  
     <div class="cards">  
-      <article class="card" aria-label="Vision of Naivagreen" tabindex="0">  
+      <article class="card" aria-label="Vision of NAIVAGREEN" tabindex="0">  
         <div class="card-content">  
           <h3>🌍 Vision</h3>  
-          <p>To lead Africa in quality seedling production.</p>  
+          <p>To lead Africa in quality seedling production and sustainable agricultural growth.</p>  
         </div>  
       </article>  
   
-      <article class="card" aria-label="Mission of Naivagreen" tabindex="0">  
+      <article class="card" aria-label="Mission of NAIVAGREEN" tabindex="0">  
         <div class="card-content">  
           <h3>🚀 Mission</h3>  
-          <p>Deliver high-quality seedlings and empower farmers.</p>  
+          <p>Deliver high-quality seedlings and empower farmers with knowledge and support for a prosperous future.</p>  
         </div>  
       </article>  
     </div>  
@@ -679,8 +694,9 @@
     <p>  
       ✔ Certified seedlings<br />  
       ✔ High survival rate<br />  
-      ✔ Expert support<br />  
-      ✔ Affordable bulk supply  
+      ✔ Expert agronomic support<br />  
+      ✔ Affordable bulk supply<br />  
+      ✔ Sustainable & eco-friendly practices  
     </p>  
   </section>  
   
@@ -688,12 +704,42 @@
   <section id="contact" class="section" role="region" aria-labelledby="contact-heading">  
     <h2 id="contact-heading">Contact & Order</h2>  
   
-    <form novalidate aria-label="Order form">  
-      <input type="text" placeholder="Your Name" name="name" required aria-required="true" />  
-      <input type="tel" placeholder="Phone Number" name="phone" required aria-required="true" />  
-      <input type="text" placeholder="Seedling Type" name="seedling" />  
-      <input type="number" placeholder="Quantity" name="quantity" min="1" />  
-      <button type="submit" aria-label="Submit your order">Submit Order</button>  
+    <form novalidate aria-label="Order form" autocomplete="off">  
+      <input  
+        type="text"  
+        placeholder="Your Name"  
+        name="name"  
+        required  
+        aria-required="true"  
+        aria-label="Your full name"  
+        autocomplete="name"  
+      />  
+      <input  
+        type="tel"  
+        placeholder="Phone Number"  
+        name="phone"  
+        required  
+        pattern="^\+?[\d\s\-]{7,15}$"  
+        aria-required="true"  
+        aria-label="Your phone number"  
+        autocomplete="tel"  
+      />  
+      <input  
+        type="text"  
+        placeholder="Seedling Type"  
+        name="seedling"  
+        aria-label="Desired seedling type"  
+        autocomplete="off"  
+      />  
+      <input  
+        type="number"  
+        placeholder="Quantity"  
+        name="quantity"  
+        min="1"  
+        aria-label="Quantity desired"  
+        autocomplete="off"  
+      />  
+      <button type="submit" aria-label="Submit your order form">Submit Order</button>  
     </form>  
   
     <iframe  
@@ -706,9 +752,7 @@
     ></iframe>  
   </section>  
   
-  <footer>  
-    © 2026 Naivagreen Propagator Ltd  
-  </footer>  
+  <footer>© 2026 NAIVAGREEN Propagator Ltd</footer>  
   
   <!-- WHATSAPP -->  
   <a  
@@ -740,7 +784,7 @@
   
       sections.forEach(current => {  
         const sectionHeight = current.offsetHeight;  
-        const sectionTop = current.offsetTop - 80;  
+        const sectionTop = current.offsetTop - 90; // slightly offset for nav height  
         const sectionId = current.getAttribute('id');  
   
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {  
@@ -748,6 +792,7 @@
             link.classList.remove('active');  
             if (link.getAttribute('href') === `#${sectionId}`) {  
               link.classList.add('active');  
+              link.focus(); // optional to improve accessibility  
             }  
           });  
         }  
@@ -764,6 +809,41 @@
         }  
       });  
     });  
+  
+    // Form submission: simple validation & alert (can be connected to backend or email service)  
+document.querySelector('form').addEventListener('submit', e => {
+  e.preventDefault();
+
+  const form = e.target;
+  const name = form.name.value.trim();
+  const phone = form.phone.value.trim();
+  const seedling = form.seedling.value.trim();
+  const quantity = form.quantity.value.trim();
+
+  if (!name) {
+    alert('Please enter your name.');
+    form.name.focus();
+    return;
+  }
+
+  if (!phone.match(/^\+?[\d\s\-]{7,15}$/)) {
+    alert('Enter a valid phone number.');
+    form.phone.focus();
+    return;
+  }
+
+  const message = `🌱 NAIVAGREEN ORDER REQUEST
+Name: ${name}
+Phone: ${phone}
+Seedling: ${seedling || 'Not specified'}
+Quantity: ${quantity || 'Not specified'}`;
+
+  const url = `https://wa.me/254729526873?text=${encodeURIComponent(message)}`;
+
+  window.open(url, '_blank');
+
+  form.reset();
+});
   </script>  
 </body>  
-  </html>
+    </html>
