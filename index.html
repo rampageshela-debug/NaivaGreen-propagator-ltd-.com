@@ -1,5 +1,6 @@
 <!DOCTYPE html>  
 <html lang="en">  
+  
 <head>  
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1" />  
@@ -8,8 +9,7 @@
   <!-- Google Fonts -->  
   <link  
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&family=Raleway:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"  
-    rel="stylesheet"  
-  />  
+    rel="stylesheet" />  
   
   <style>  
     /* ===== RESET & BASE ===== */  
@@ -217,184 +217,198 @@
       transform: scale(1.2) rotateZ(90deg);  
     }  
   
-    
-
-/* ===== HERO SECTION (UPGRADED) ===== */
-.hero {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  overflow: hidden;
-  margin-top: 80px;
-}
-
-/* 🌿 REAL IMAGE BACKGROUND */
-.hero-background {
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(
-      135deg,
-      rgba(15, 20, 25, 0.85),
-      rgba(26, 35, 50, 0.9)
-    ),
-    url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') center/cover no-repeat;
-  z-index: 0;
-  animation: zoomBg 20s ease-in-out infinite alternate;
-}
-
-/* ✨ GRADIENT OVERLAY */
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-      circle at 20% 50%,
-      rgba(81, 195, 106, 0.2) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(16, 185, 129, 0.15) 0%,
-      transparent 50%
-    );
-  z-index: 1;
-  animation: gradientMove 15s ease-in-out infinite;
-}
-
-/* 🌟 FLOATING ORBS */
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.15;
-  z-index: 1;
-  pointer-events: none;
-  filter: blur(40px);
-}
-
-.hero::before {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #51c36a, transparent);
-  top: -100px;
-  left: -100px;
-  animation: float 8s ease-in-out infinite;
-}
-
-.hero::after {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, #4ade80, transparent);
-  bottom: -50px;
-  right: -50px;
-  animation: float 6s ease-in-out infinite reverse;
-}
-
-/* 🧊 CONTENT */
-.hero-content {
-  max-width: 900px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-/* 🧠 TITLE */
-.hero h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 800;
-  margin-bottom: 20px;
-  line-height: 1.1;
-
-  /* 🌿 SLIDESHOW CONTAINER */
-.hero-background {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* EACH SLIDE */
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 8s ease;
-}
-
-/* ACTIVE SLIDE */
-.hero-slide.active {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* DARK OVERLAY */
-.hero-slide::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(15, 20, 25, 0.75),
-    rgba(26, 35, 50, 0.85)
-  );
-}
-/* ✍️ SUBTEXT */
-.hero-subtitle {
-  font-size: 1.3rem;
-  color: #a0a8b1;
-  margin-bottom: 10px;
-}
-
-.hero-description {
-  font-size: 1.1rem;
-  color: #808a92;
-  max-width: 600px;
-  margin: 0 auto 40px;
-  line-height: 1.8;
-}
-
-/* 🔘 BUTTONS */
-.hero-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes zoomBg {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInDown {
-  from { opacity: 0; transform: translateY(-50px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes textGlow {
-  0% { text-shadow: 0 0 10px rgba(74,222,128,0.2); }
-  100% { text-shadow: 0 0 25px rgba(74,222,128,0.5); }
-           }
+    /* ===== HERO SECTION (UPGRADED) ===== */  
+    .hero {  
+      height: 100vh;  
+      position: relative;  
+      display: flex;  
+      flex-direction: column;  
+      justify-content: center;  
+      align-items: center;  
+      padding: 0 20px;  
+      overflow: hidden;  
+      margin-top: 80px;  
+      text-align: center;  
+    }  
+  
+    /* 🌿 REAL IMAGE BACKGROUND */  
+    .hero-background {  
+      position: absolute;  
+      inset: 0;  
+      z-index: 0;  
+      overflow: hidden;  
+    }  
+  
+    /* EACH SLIDE */  
+    .hero-slide {  
+      position: absolute;  
+      inset: 0;  
+      background-size: cover;  
+      background-position: center;  
+      opacity: 0;  
+      transition: opacity 1.5s ease-in-out, transform 8s ease;  
+    }  
+  
+    /* ACTIVE SLIDE */  
+    .hero-slide.active {  
+      opacity: 1;  
+      transform: scale(1.1);  
+    }  
+  
+    /* DARK OVERLAY */  
+    .hero-slide::after {  
+      content: '';  
+      position: absolute;  
+      inset: 0;  
+      background: linear-gradient(135deg, rgba(15, 20, 25, 0.75), rgba(26, 35, 50, 0.85));  
+      pointer-events: none;  
+    }  
+  
+    /* ✨ GRADIENT OVERLAY */  
+    .hero-gradient {  
+      position: absolute;  
+      inset: 0;  
+      background: radial-gradient(circle at 20% 50%, rgba(81, 195, 106, 0.2) 0%, transparent 50%),  
+        radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%);  
+      z-index: 1;  
+      animation: gradientMove 15s ease-in-out infinite;  
+      pointer-events: none;  
+    }  
+  
+    /* 🌟 FLOATING ORBS */  
+    .hero::before,  
+    .hero::after {  
+      content: '';  
+      position: absolute;  
+      border-radius: 50%;  
+      opacity: 0.15;  
+      z-index: 1;  
+      pointer-events: none;  
+      filter: blur(40px);  
+    }  
+  
+    .hero::before {  
+      width: 400px;  
+      height: 400px;  
+      background: radial-gradient(circle, #51c36a, transparent);  
+      top: -100px;  
+      left: -100px;  
+      animation: float 8s ease-in-out infinite;  
+    }  
+  
+    .hero::after {  
+      width: 300px;  
+      height: 300px;  
+      background: radial-gradient(circle, #4ade80, transparent);  
+      bottom: -50px;  
+      right: -50px;  
+      animation: float 6s ease-in-out infinite reverse;  
+    }  
+  
+    /* 🧊 CONTENT */  
+    .hero-content {  
+      max-width: 900px;  
+      text-align: center;  
+      position: relative;  
+      z-index: 2;  
+      animation: fadeInUp 1.2s ease forwards;  
+      color: #e0e0e0;  
+    }  
+  
+    /* 🧠 TITLE */  
+    .hero h1 {  
+      font-family: 'Space Grotesk', sans-serif;  
+      font-size: clamp(2.5rem, 8vw, 4.5rem);  
+      font-weight: 800;  
+      margin-bottom: 20px;  
+      line-height: 1.1;  
+      background: linear-gradient(135deg, #4ade80, #51c36a);  
+      -webkit-background-clip: text;  
+      -webkit-text-fill-color: transparent;  
+      background-clip: text;  
+      letter-spacing: 2px;  
+      text-transform: uppercase;  
+      text-shadow: 0 0 40px rgba(81, 195, 106, 0.5);  
+      transition: all 0.6s ease;  
+      margin-bottom: 10px;  
+    }  
+  
+    /* ✍️ SUBTEXT */  
+    .hero-subtitle {  
+      font-size: 1.3rem;  
+      color: #a0a8b1;  
+      margin-bottom: 10px;  
+      font-weight: 500;  
+      font-family: 'Raleway', sans-serif;  
+    }  
+  
+    .hero-description {  
+      font-size: 1.1rem;  
+      color: #808a92;  
+      max-width: 600px;  
+      margin: 0 auto 40px auto;  
+      line-height: 1.8;  
+      font-weight: 400;  
+    }  
+  
+    /* 🔘 BUTTONS */  
+    .hero-buttons {  
+      display: flex;  
+      gap: 20px;  
+      justify-content: center;  
+      flex-wrap: wrap;  
+      z-index: 3;  
+    }  
+  
+    .btn {  
+      padding: 14px 28px;  
+      border-radius: 12px;  
+      font-weight: 700;  
+      font-family: 'Space Grotesk', sans-serif;  
+      font-size: 1rem;  
+      letter-spacing: 1px;  
+      text-transform: uppercase;  
+      cursor: pointer;  
+      user-select: none;  
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);  
+      text-decoration: none;  
+      display: inline-flex;  
+      align-items: center;  
+      justify-content: center;  
+    }  
+  
+    .btn-primary {  
+      background: linear-gradient(135deg, #51c36a, #4ade80);  
+      color: #0f1419;  
+      border: none;  
+      box-shadow: 0 12px 32px rgba(81, 195, 106, 0.3);  
+    }  
+  
+    .btn-primary:hover,  
+    .btn-primary:focus {  
+      box-shadow: 0 16px 48px rgba(81, 195, 106, 0.5);  
+      transform: translateY(-2px);  
+      outline: none;  
+    }  
+  
+    .btn-primary:active {  
+      box-shadow: 0 8px 24px rgba(81, 195, 106, 0.3);  
+      transform: translateY(0);  
+    }  
+  
+    .btn-secondary {  
+      color: #4ade80;  
+      border: 2px solid #4ade80;  
+      background: transparent;  
+    }  
+  
+    .btn-secondary:hover,  
+    .btn-secondary:focus {  
+      background: #4ade80;  
+      color: #0f1419;  
+      outline: none;  
+      box-shadow: 0 8px 20px rgba(81, 195, 106, 0.4);  
+    }  
   
     /* ===== SECTIONS ===== */  
     .section {  
@@ -460,12 +474,17 @@
       border: 1px solid rgba(81, 195, 106, 0.3);  
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);  
       animation: fadeInUp 1s ease, floatUp 4s ease-in-out infinite;  
+      display: block;  
+      margin-left: auto;  
+      margin-right: auto;  
     }  
   
-    video:hover {  
+    video:hover,  
+    video:focus {  
       transform: scale(1.02) translateY(-5px);  
       box-shadow: 0 24px 80px rgba(81, 195, 106, 0.3);  
       border-color: rgba(81, 195, 106, 0.6);  
+      outline: none;  
     }  
   
     /* ===== CARDS ===== */  
@@ -488,6 +507,12 @@
       flex-direction: column;  
       position: relative;  
       animation: fadeInUp 1s ease;  
+      outline-offset: 2px;  
+    }  
+  
+    .card:focus-visible {  
+      outline: 2px solid #4ade80;  
+      outline-offset: 4px;  
     }  
   
     .card::before {  
@@ -502,11 +527,13 @@
       animation: shimmer 2s ease-in-out infinite;  
     }  
   
-    .card:hover {  
+    .card:hover,  
+    .card:focus {  
       border-color: rgba(81, 195, 106, 0.6);  
       box-shadow: 0 20px 60px rgba(81, 195, 106, 0.15), 0 0 30px rgba(81, 195, 106, 0.2);  
       transform: translateY(-8px);  
       background: rgba(26, 35, 50, 0.8);  
+      outline: none;  
     }  
   
     .card:hover::before {  
@@ -522,7 +549,8 @@
       animation: zoomIn 0.6s ease forwards;  
     }  
   
-    .card:hover img {  
+    .card:hover img,  
+    .card:focus img {  
       filter: brightness(1.1) saturate(1.2);  
       transform: scale(1.08) rotate(0.5deg);  
     }  
@@ -543,7 +571,8 @@
       z-index: 2;  
     }  
   
-    .card:hover .card-content {  
+    .card:hover .card-content,  
+    .card:focus .card-content {  
       color: #4ade80;  
     }  
   
@@ -572,8 +601,12 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  
       font-family: 'Poppins', sans-serif;  
       position: relative;  
-      resize: vertical; /* Allow vertical resize for textarea */  
+      resize: vertical;  
       min-height: 80px;  
+    }  
+  
+    form textarea {  
+      min-height: 100px;  
     }  
   
     form input::placeholder,  
@@ -615,9 +648,11 @@
       opacity: 0;  
     }  
   
-    form button:hover {  
+    form button:hover,  
+    form button:focus {  
       box-shadow: 0 16px 48px rgba(81, 195, 106, 0.5);  
       transform: translateY(-2px);  
+      outline: none;  
     }  
   
     form button:active {  
@@ -635,12 +670,14 @@
       font-size: 1rem;  
       display: none;  
     }  
+  
     .form-response.success {  
       background: rgba(74, 222, 128, 0.3);  
       color: #4ade80;  
       border: 1px solid #4ade80;  
       display: block;  
     }  
+  
     .form-response.error {  
       background: rgba(239, 68, 68, 0.3);  
       color: #ef4444;  
@@ -664,10 +701,12 @@
       animation: fadeInUp 1s ease, floatUp 5s ease-in-out infinite;  
     }  
   
-    iframe:hover {  
+    iframe:hover,  
+    iframe:focus {  
       border-color: rgba(81, 195, 106, 0.6);  
       box-shadow: 0 24px 80px rgba(81, 195, 106, 0.2);  
       transform: translateY(-5px);  
+      outline: none;  
     }  
   
     /* ===== WHATSAPP BUTTON ===== */  
@@ -691,6 +730,7 @@
       border: 2px solid rgba(255, 255, 255, 0.2);  
       backdrop-filter: blur(10px);  
       animation: pulse 2s ease-in-out infinite, float 3s ease-in-out infinite;  
+      user-select: none;  
     }  
   
     .whatsapp::before {  
@@ -702,9 +742,11 @@
       animation: radar 2s ease-out infinite;  
     }  
   
-    .whatsapp:hover {  
+    .whatsapp:hover,  
+    .whatsapp:focus {  
       transform: scale(1.15) rotate(10deg);  
       box-shadow: 0 20px 60px rgba(37, 211, 102, 0.6);  
+      outline: none;  
     }  
   
     /* ===== FOOTER ===== */  
@@ -726,6 +768,7 @@
         opacity: 0;  
         transform: translateY(30px);  
       }  
+  
       to {  
         opacity: 1;  
         transform: translateY(0);  
@@ -737,6 +780,7 @@
         opacity: 0;  
         transform: translateY(-30px);  
       }  
+  
       to {  
         opacity: 1;  
         transform: translateY(0);  
@@ -748,6 +792,7 @@
         opacity: 0;  
         transform: translateY(30px);  
       }  
+  
       to {  
         opacity: 1;  
         transform: translateY(0);  
@@ -758,78 +803,84 @@
       from {  
         opacity: 0;  
       }  
+  
       to {  
         opacity: 1;  
       }  
     }  
   
     @keyframes float {  
-      0%, 100% {  
+      0%,  
+      100% {  
         transform: translateY(0px);  
       }  
+  
       50% {  
         transform: translateY(-20px);  
       }  
     }  
   
     @keyframes floatUp {  
-      0%, 100% {  
+      0%,  
+      100% {  
         transform: translateY(0px);  
       }  
+  
       50% {  
         transform: translateY(-10px);  
       }  
     }  
   
-    @keyframes gradientShift {  
-      0%, 100% {  
-        filter: blur(8px);  
-      }  
-      50% {  
-        filter: blur(12px);  
-      }  
-    }  
-  
     @keyframes gradientMove {  
-      0%, 100% {  
+      0%,  
+      100% {  
         transform: translate(0, 0);  
       }  
+  
       50% {  
         transform: translate(30px, 30px);  
       }  
     }  
   
     @keyframes textGlow {  
-      0%, 100% {  
+      0%,  
+      100% {  
         text-shadow: 0 0 20px rgba(81, 195, 106, 0.5);  
       }  
+  
       50% {  
         text-shadow: 0 0 40px rgba(81, 195, 106, 0.8), 0 0 60px rgba(74, 222, 128, 0.4);  
       }  
     }  
   
     @keyframes textShimmer {  
-      0%, 100% {  
+      0%,  
+      100% {  
         background-position: 0% 50%;  
       }  
+  
       50% {  
         background-position: 100% 50%;  
       }  
     }  
   
     @keyframes pulse {  
-      0%, 100% {  
+      0%,  
+      100% {  
         transform: scale(1);  
       }  
+  
       50% {  
         transform: scale(1.05);  
       }  
     }  
   
     @keyframes shimmer {  
-      0%, 100% {  
+      0%,  
+      100% {  
         opacity: 0.1;  
       }  
+  
       50% {  
         opacity: 0.2;  
       }  
@@ -840,19 +891,9 @@
         transform: scale(0.8);  
         opacity: 1;  
       }  
+  
       100% {  
         transform: scale(1.8);  
-        opacity: 0;  
-      }  
-    }  
-  
-    @keyframes ripple {  
-      0% {  
-        transform: scale(0);  
-        opacity: 1;  
-      }  
-      100% {  
-        transform: scale(2);  
         opacity: 0;  
       }  
     }  
@@ -862,6 +903,7 @@
         transform: scale(1.1);  
         opacity: 0;  
       }  
+  
       to {  
         transform: scale(1);  
         opacity: 1;  
@@ -965,10 +1007,11 @@
     }  
   </style>  
 </head>  
+  
 <body>  
   <!-- NAV -->  
   <nav role="navigation" aria-label="Main navigation">  
-    <div class="logo" tabindex="0" role="button">  
+    <div class="logo" tabindex="0" role="button" aria-label="NAIVAGREEN homepage" onclick="location.href='#home'" onkeypress="if(event.key==='Enter') location.href='#home'">  
       <div class="logo-wrapper">  
         <div class="logo-bg"></div>  
         <img src="images/logo2.png" alt="NAIVAGREEN Logo" />  
@@ -979,12 +1022,7 @@
       </div>  
     </div>  
   
-    <button  
-      class="menu"  
-      aria-label="Toggle navigation menu"  
-      aria-expanded="false"  
-      onclick="toggleMenu()"  
-    >  
+    <button class="menu" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMenu()">  
       ☰  
     </button>  
   
@@ -1001,27 +1039,29 @@
   
   <!-- HERO -->  
   <section id="home" class="hero" role="banner" aria-label="Welcome to NAIVAGREEN">  
-    <div class="hero-background">
-  <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1471193945509-9ad0617afabf')"></div>
-    </div>
-    <div class="hero-gradient"></div>  
+    <div class="hero-background" aria-hidden="true">  
+      <div class="hero-slide active"  
+        style="background-image:url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3')"></div>  
+      <div class="hero-slide"  
+        style="background-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6')"></div>  
+      <div class="hero-slide"  
+        style="background-image:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399')"></div>  
+      <div class="hero-slide"  
+        style="background-image:url('https://images.unsplash.com/photo-1471193945509-9ad0617afabf')"></div>  
+    </div>  
+    <div class="hero-gradient" aria-hidden="true"></div>  
   
     <div class="hero-content">  
-      <h1>Premium Seedlings in Kenya</h1>  
-      <p class="hero-subtitle">Healthy • Certified • High Yield</p>  
-      <p class="hero-description">Transforming Kenyan agriculture with disease-free, certified seedlings that maximize yields and farmer profitability.</p>  
+      <h1 id="hero-title">Premium Seedlings in Kenya</h1>  
+      <p id="hero-subtitle" class="hero-subtitle">Healthy • Certified • High Yield</p>  
+      <p id="hero-description" class="hero-description">  
+        Transforming Kenyan agriculture with disease-free, certified seedlings that maximize yields and farmer  
+        profitability.  
+      </p>  
   
       <div class="hero-buttons">  
-        <a  
-          href="https://wa.me/254729526873"  
-          class="btn btn-primary"  
-          target="_blank"  
-          rel="noopener"  
-          aria-label="Order seedlings now via WhatsApp"  
-        >  
+        <a href="https://wa.me/254729526873" class="btn btn-primary" target="_blank" rel="noopener"  
+          aria-label="Order seedlings now via WhatsApp">  
           📱 Order Now  
         </a>  
         <a href="#contact" class="btn btn-secondary" aria-label="Learn more about our products">  
@@ -1065,7 +1105,8 @@
         <div class="card-content">  
           <div>  
             <h3 style="font-size: 1.5rem; margin-bottom: 12px;">🌍 Vision</h3>  
-            <p style="font-size: 1rem; color: #a0a8b1;">To lead Africa in quality seedling production and sustainable agricultural growth.</p>  
+            <p style="font-size: 1rem; color: #a0a8b1;">To lead Africa in quality seedling production and sustainable  
+              agricultural growth.</p>  
           </div>  
         </div>  
       </article>  
@@ -1074,7 +1115,8 @@
         <div class="card-content">  
           <div>  
             <h3 style="font-size: 1.5rem; margin-bottom: 12px;">🚀 Mission</h3>  
-            <p style="font-size: 1rem; color: #a0a8b1;">Deliver high-quality seedlings and empower farmers with knowledge and support for a prosperous future.</p>  
+            <p style="font-size: 1rem; color: #a0a8b1;">Deliver high-quality seedlings and empower farmers with knowledge  
+              and support for a prosperous future.</p>  
           </div>  
         </div>  
       </article>  
@@ -1130,70 +1172,28 @@
     </div>  
   
     <form novalidate aria-label="Order and Questions form" autocomplete="off" id="contactForm">  
-      <input  
-        type="text"  
-        placeholder="Your Name"  
-        name="name"  
-        required  
-        aria-required="true"  
-        aria-label="Your full name"  
-        autocomplete="name"  
-      />  
-      <input  
-        type="tel"  
-        placeholder="Phone Number"  
-        name="phone"  
-        required  
-        pattern="^\+?[\d\s\-]{7,15}$"  
-        aria-required="true"  
-        aria-label="Your phone number"  
-        autocomplete="tel"  
-      />  
-      <input  
-        type="text"  
-        placeholder="Seedling Type"  
-        name="seedling"  
-        aria-label="Desired seedling type"  
-        autocomplete="off"  
-      />  
-      <input  
-        type="number"  
-        placeholder="Quantity"  
-        name="quantity"  
-        min="1"  
-        aria-label="Quantity desired"  
-        autocomplete="off"  
-      />  
-      <textarea  
-        placeholder="Your question about seedling propagation or anything else"  
-        name="question"  
-        aria-label="Your question about seedlings"  
-        autocomplete="off"  
-        rows="4"  
-      ></textarea>  
+      <input type="text" placeholder="Your Name" name="name" required aria-required="true" aria-label="Your full name"  
+        autocomplete="name" />  
+      <input type="tel" placeholder="Phone Number" name="phone" required pattern="^\+?[\d\s\-]{7,15}$"  
+        aria-required="true" aria-label="Your phone number" autocomplete="tel" />  
+      <input type="text" placeholder="Seedling Type" name="seedling" aria-label="Desired seedling type"  
+        autocomplete="off" />  
+      <input type="number" placeholder="Quantity" name="quantity" min="1" aria-label="Quantity desired" autocomplete="off" />  
+      <textarea placeholder="Your question about seedling propagation or anything else" name="question"  
+        aria-label="Your question about seedlings" autocomplete="off" rows="4"></textarea>  
       <button type="submit" aria-label="Submit your inquiry form">Submit Inquiry</button>  
     </form>  
     <div id="formResponse" class="form-response" aria-live="polite"></div>  
   
-    <iframe  
-      title="Naivasha location map"  
-      src="https://www.google.com/maps?q=Naivasha&output=embed"  
-      loading="lazy"  
-      referrerpolicy="no-referrer-when-downgrade"  
-      tabindex="0"  
-    ></iframe>  
+    <iframe title="Naivasha location map" src="https://www.google.com/maps?q=Naivasha&amp;output=embed" loading="lazy"  
+      referrerpolicy="no-referrer-when-downgrade" tabindex="0"></iframe>  
   </section>  
   
   <footer>© 2026 NAIVAGREEN Propagator Ltd • Cultivating Growth, Empowering Farmers</footer>  
   
   <!-- WHATSAPP -->  
-  <a  
-    href="https://wa.me/254729526873"  
-    class="whatsapp"  
-    target="_blank"  
-    rel="noopener"  
-    aria-label="Chat with us on WhatsApp"  
-  >  
+  <a href="https://wa.me/254729526873" class="whatsapp" target="_blank" rel="noopener"  
+    aria-label="Chat with us on WhatsApp" tabindex="0">  
     💬  
   </a>  
   
@@ -1216,10 +1216,10 @@
   
       sections.forEach(current => {  
         const sectionHeight = current.offsetHeight;  
-        const sectionTop = current.offsetTop - 100;  
+        const sectionTop = current.offsetTop - 110; // Increased offset for navbar height  
         const sectionId = current.getAttribute('id');  
   
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {  
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {  
           navLinks.forEach(link => {  
             link.classList.remove('active');  
             if (link.getAttribute('href') === `#${sectionId}`) {  
@@ -1260,63 +1260,64 @@
     document.querySelectorAll('.section').forEach(section => {  
       observer.observe(section);  
     });  
-
-const slides = document.querySelectorAll(".hero-slide");
-
-const data = [
-  {
-    title: "Premium Seedlings in Kenya 🌱",
-    subtitle: "Healthy • Certified • High Yield",
-    desc: "Transforming Kenyan agriculture with disease-free seedlings that maximize profits."
-  },
-  {
-    title: "Boost Your Farm Productivity 🚜",
-    subtitle: "Modern Farming Solutions",
-    desc: "High survival rate seedlings designed for maximum yield and growth."
-  },
-  {
-    title: "Trusted by Farmers Across Kenya 🇰🇪",
-    subtitle: "Reliable • Affordable • Proven",
-    desc: "Thousands of farmers trust NAIVAGREEN for consistent quality production."
-  },
-  {
-    title: "Grow Smarter, Earn More 💰",
-    subtitle: "Sustainable Agriculture",
-    desc: "We help farmers increase income through expert propagation techniques."
-  }
-];
-
-let index = 0;
-
-const title = document.getElementById("hero-title");
-const subtitle = document.getElementById("hero-subtitle");
-const desc = document.getElementById("hero-description");
-
-function changeHero() {
-  // switch image
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-
-  // fade text
-  title.style.opacity = 0;
-  subtitle.style.opacity = 0;
-  desc.style.opacity = 0;
-
-  setTimeout(() => {
-    title.textContent = data[index].title;
-    subtitle.textContent = data[index].subtitle;
-    desc.textContent = data[index].desc;
-
-    title.style.opacity = 1;
-    subtitle.style.opacity = 1;
-    desc.style.opacity = 1;
-  }, 400);
-}
-
-setInterval(changeHero, 5000);
   
-    // Form submission with question and order details using WhatsApp link  
+    // Hero slideshow and text update  
+    const slides = document.querySelectorAll(".hero-slide");  
+  
+    const data = [  
+      {  
+        title: "Premium Seedlings in Kenya 🌱",  
+        subtitle: "Healthy • Certified • High Yield",  
+        desc: "Transforming Kenyan agriculture with disease-free seedlings that maximize profits."  
+      },  
+      {  
+        title: "Boost Your Farm Productivity 🚜",  
+        subtitle: "Modern Farming Solutions",  
+        desc: "High survival rate seedlings designed for maximum yield and growth."  
+      },  
+      {  
+        title: "Trusted by Farmers Across Kenya 🇰🇪",  
+        subtitle: "Reliable • Affordable • Proven",  
+        desc: "Thousands of farmers trust NAIVAGREEN for consistent quality production."  
+      },  
+      {  
+        title: "Grow Smarter, Earn More 💰",  
+        subtitle: "Sustainable Agriculture",  
+        desc: "We help farmers increase income through expert propagation techniques."  
+      }  
+    ];  
+  
+    let index = 0;  
+  
+    const title = document.getElementById("hero-title");  
+    const subtitle = document.getElementById("hero-subtitle");  
+    const desc = document.getElementById("hero-description");  
+  
+    function changeHero() {  
+      // switch image  
+      slides[index].classList.remove("active");  
+      index = (index + 1) % slides.length;  
+      slides[index].classList.add("active");  
+  
+      // fade text  
+      title.style.opacity = 0;  
+      subtitle.style.opacity = 0;  
+      desc.style.opacity = 0;  
+  
+      setTimeout(() => {  
+        title.textContent = data[index].title;  
+        subtitle.textContent = data[index].subtitle;  
+        desc.textContent = data[index].desc;  
+  
+        title.style.opacity = 1;  
+        subtitle.style.opacity = 1;  
+        desc.style.opacity = 1;  
+      }, 400);  
+    }  
+  
+    setInterval(changeHero, 5000);  
+  
+    // Form submission with question and order details using WhatsApp link    
     document.getElementById('contactForm').addEventListener('submit', e => {  
       e.preventDefault();  
   
@@ -1346,11 +1347,11 @@ setInterval(changeHero, 5000);
   
       // Compose WhatsApp message with seedling order and question  
       let message = `🌱 *NAIVAGREEN INQUIRY AND ORDER REQUEST*%0A`;  
-      message += `*Name:* ${name}%0A`;  
-      message += `*Phone:* ${phone}%0A`;  
-      message += `*Seedling:* ${seedling || 'Not specified'}%0A`;  
-      message += `*Quantity:* ${quantity || 'Not specified'}%0A`;  
-      message += `*Question:* ${question || 'No question provided'}`;  
+      message += `*Name:* ${encodeURIComponent(name)}%0A`;  
+      message += `*Phone:* ${encodeURIComponent(phone)}%0A`;  
+      message += `*Seedling:* ${encodeURIComponent(seedling || 'Not specified')}%0A`;  
+      message += `*Quantity:* ${encodeURIComponent(quantity || 'Not specified')}%0A`;  
+      message += `*Question:* ${encodeURIComponent(question || 'No question provided')}`;  
   
       const waNumber = '254729526873';  
       const url = `https://wa.me/${waNumber}?text=${message}`;  
@@ -1365,4 +1366,5 @@ setInterval(changeHero, 5000);
     });  
   </script>  
 </body>  
-        </html>
+  
+          </html>
